@@ -13,7 +13,7 @@ businessEmail: “golobbygamerz@gmail.com”,
 // Replace this with Mehak’s WhatsApp number.
 // Use country code WITHOUT + or spaces.
 // Example for India: 919876543210
-whatsappNumber: “919315169750”,
+whatsappNumber: “9310151087”,
 
 paymentMethod: “Cash on Appointment”,
 
