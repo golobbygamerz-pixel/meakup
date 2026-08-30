@@ -272,15 +272,31 @@ body {
 }
 
 .btn-outline {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(43, 36, 27, 0.85);
   backdrop-filter: blur(8px);
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--gold-dark);
+  color: white;
   transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Special styling for email button to ensure visibility */
+#sendEmail.btn-outline {
+  background: #2b241b;
+  color: white;
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#sendEmail.btn-outline:hover {
+  background: var(--gold-dark);
+  color: white;
 }
 
 .glass-info-card {
@@ -947,6 +963,11 @@ body {
   }
   
   .glass-info-card {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .success-buttons {
     flex-direction: column;
     align-items: center;
   }
