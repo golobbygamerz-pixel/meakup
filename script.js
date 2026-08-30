@@ -1,1313 +1,419 @@
-/* =========================================================
-   MEHAK MAKEUP ARTIST
-   EASY BUSINESS SETTINGS
-   ========================================================= */
+(function() {
+  // Service data
+  const services = [
+    { name: 'Bridal Makeup', img: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2070&auto=format&fit=crop', desc: 'Signature bridal look with premium products', price: '₹15,000', duration: '3 hrs' },
+    { name: 'Engagement Makeup', img: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2070&auto=format&fit=crop', desc: 'Elegant engagement style', price: '₹8,000', duration: '2 hrs' },
+    { name: 'Party Makeup', img: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=2070&auto=format&fit=crop', desc: 'Glam party look', price: '₹5,000', duration: '1.5 hrs' },
+    { name: 'Reception Makeup', img: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=1974&auto=format&fit=crop', desc: 'Stunning reception makeup', price: '₹10,000', duration: '2.5 hrs' },
+    { name: 'HD Makeup', img: 'https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=2070&auto=format&fit=crop', desc: 'High definition flawless finish', price: '₹12,000', duration: '2 hrs' },
+    { name: 'Hairstyling', img: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=2070&auto=format&fit=crop', desc: 'Professional hairstyling', price: '₹2,500', duration: '1 hr' },
+    { name: 'Saree Draping', img: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=2070&auto=format&fit=crop', desc: 'Perfect saree draping', price: '₹1,500', duration: '30 min' },
+    { name: 'Makeup + Hairstyling', img: 'https://images.unsplash.com/photo-1457972729786-0411a3b2b626?q=80&w=2070&auto=format&fit=crop', desc: 'Complete beauty package', price: '₹7,500', duration: '2.5 hrs' },
+  ];
 
-const CONFIG = {
-  artistName: "Mehak",
-  businessEmail: "golobbygamerz@gmail.com",
+  // Gallery data
+  const galleryImages = [
+    { src: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=1974&auto=format&fit=crop', cat: 'bridal' },
+    { src: 'https://images.unsplash.com/photo-1512201078372-9c6b2a0d528a?q=80&w=2073&auto=format&fit=crop', cat: 'party' },
+    { src: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2070&auto=format&fit=crop', cat: 'engagement' },
+    { src: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2070&auto=format&fit=crop', cat: 'hairstyling' },
+    { src: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=1974&auto=format&fit=crop', cat: 'reception' },
+    { src: 'https://images.unsplash.com/photo-1522335782467-99fc95f3c9c8?q=80&w=2070&auto=format&fit=crop', cat: 'client' },
+    { src: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=2070&auto=format&fit=crop', cat: 'party' },
+    { src: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=2070&auto=format&fit=crop', cat: 'hairstyling' },
+  ];
 
-  // WhatsApp MUST contain country code.
-  // 91 + 9310151087 = 919310151087
-  whatsappNumber: "919310151087",
+  // Reviews data
+  const reviewsData = [
+    { name: 'Ananya Sharma', img: 'https://randomuser.me/api/portraits/women/68.jpg', text: 'Mehak made my bridal look absolutely dreamy! Flawless and long-lasting makeup.' },
+    { name: 'Ritika Verma', img: 'https://randomuser.me/api/portraits/women/44.jpg', text: 'Loved the HD makeup. Got compliments all night long!' },
+    { name: 'Sneha Patel', img: 'https://randomuser.me/api/portraits/women/65.jpg', text: 'Professional and friendly. The engagement makeup was perfect.' },
+    { name: 'Kavya Singh', img: 'https://randomuser.me/api/portraits/women/33.jpg', text: 'Best makeup artist in town. Highly recommend for parties and events.' },
+    { name: 'Pooja Desai', img: 'https://randomuser.me/api/portraits/women/50.jpg', text: 'Saree draping and hairstyling were stunning. Thank you Mehak!' },
+    { name: 'Neha Gupta', img: 'https://randomuser.me/api/portraits/women/72.jpg', text: 'Absolutely loved my reception look. Very professional and talented.' },
+  ];
 
-  paymentMethod: "Cash on Appointment",
+  // DOM Elements
+  const servicesGrid = document.getElementById('servicesGrid');
+  const serviceCheckboxes = document.getElementById('serviceCheckboxes');
+  const masonryGallery = document.getElementById('masonryGallery');
+  const reviewsGrid = document.getElementById('reviewsGrid');
+  const datePicker = document.getElementById('datePicker');
+  const timeContainer = document.getElementById('timeSlots');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  const navbar = document.getElementById('navbar');
+  
+  // State variables
+  let currentStep = 1;
+  let selectedDate = '';
+  let selectedTime = '';
+  let selectedServices = new Set();
 
-  // Demo unavailable slots.
-  // Change these whenever you want.
-  unavailableSlots: {
-    // "2026-09-01": ["10:30 AM", "4:00 PM"],
-    // "2026-09-02": ["12:00 PM"]
-  }
-};
-
-
-/* =========================================================
-   GLOBAL STATE
-   ========================================================= */
-
-const state = {
-  step: 1,
-  people: "1",
-  services: [],
-  date: "",
-  dateLabel: "",
-  time: "",
-  bookingId: "",
-  booking: null
-};
-
-
-/* =========================================================
-   DOM READY
-   ========================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  setupNavigation();
-  setupServiceButtons();
-  setupBookingServices();
-  setupPeopleSelector();
-  setupBookingSteps();
-  setupDates();
-  setupTimeSlots();
-  setupCalendarFallback();
-  setupFormValidation();
-  setupGallery();
-  setupRevealAnimations();
-  setupWhatsAppLinks();
-  setupSuccessButtons();
-
-});
-
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
-function setupNavigation() {
-
-  const menuToggle = document.getElementById("menuToggle");
-  const navMenu = document.getElementById("navMenu");
-
-  if (!menuToggle || !navMenu) return;
-
-  menuToggle.addEventListener("click", () => {
-
-    menuToggle.classList.toggle("active");
-    navMenu.classList.toggle("open");
-    document.body.classList.toggle("menu-open");
-
-  });
-
-  navMenu.querySelectorAll("a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-      menuToggle.classList.remove("active");
-      navMenu.classList.remove("open");
-      document.body.classList.remove("menu-open");
-
+  // Render Services
+  function renderServices() {
+    servicesGrid.innerHTML = '';
+    services.forEach((service) => {
+      const card = document.createElement('div');
+      card.className = 'service-card';
+      card.innerHTML = `
+        <img src="${service.img}" class="service-img" alt="${service.name}">
+        <h3>${service.name}</h3>
+        <p class="service-desc">${service.desc}</p>
+        <div class="service-price">${service.price}</div>
+        <div class="service-duration">Duration: ${service.duration}</div>
+        <button class="btn btn-primary book-service-btn" data-service="${service.name}">BOOK NOW</button>
+      `;
+      servicesGrid.appendChild(card);
     });
 
-  });
+    // Add event listeners to book buttons
+    document.querySelectorAll('.book-service-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const serviceName = e.target.dataset.service;
+        // Clear all checkboxes
+        document.querySelectorAll('.serviceCheck').forEach(c => c.checked = false);
+        // Check the selected service
+        const targetCheck = [...document.querySelectorAll('.serviceCheck')].find(c => c.value === serviceName);
+        if (targetCheck) targetCheck.checked = true;
+        // Navigate to booking
+        showStep(1);
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  }
 
-}
+  // Render Service Checkboxes
+  function renderServiceCheckboxes() {
+    serviceCheckboxes.innerHTML = '';
+    services.forEach(service => {
+      const label = document.createElement('label');
+      label.innerHTML = `
+        <input type="checkbox" class="serviceCheck" value="${service.name}"> ${service.name}
+      `;
+      serviceCheckboxes.appendChild(label);
+    });
+  }
 
+  // Render Gallery
+  function renderGallery(filter = 'all') {
+    masonryGallery.innerHTML = '';
+    const filtered = filter === 'all' ? galleryImages : galleryImages.filter(g => g.cat === filter);
+    filtered.forEach(img => {
+      const div = document.createElement('div');
+      div.className = 'masonry-item';
+      div.innerHTML = `<img src="${img.src}" alt="${img.cat} look">`;
+      div.addEventListener('click', () => openLightbox(img.src));
+      masonryGallery.appendChild(div);
+    });
+  }
 
-/* =========================================================
-   SERVICE CARDS → BOOKING FORM
-   ========================================================= */
+  // Open Lightbox
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add('active');
+  }
 
-function setupServiceButtons() {
+  // Close Lightbox
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+  }
 
-  document.querySelectorAll(".service-book").forEach(button => {
+  // Render Reviews
+  function renderReviews() {
+    reviewsGrid.innerHTML = '';
+    reviewsData.forEach(review => {
+      const card = document.createElement('div');
+      card.className = 'review-card';
+      card.innerHTML = `
+        <img src="${review.img}" alt="${review.name}">
+        <h3>${review.name}</h3>
+        <div class="review-stars">★★★★★</div>
+        <p>${review.text}</p>
+      `;
+      reviewsGrid.appendChild(card);
+    });
+  }
 
-    button.addEventListener("click", () => {
+  // Generate Dates
+  function generateDates() {
+    datePicker.innerHTML = '';
+    const today = new Date();
+    for (let i = 0; i < 14; i++) {
+      const date = new Date(today);
+      date.setDate(today.getDate() + i);
+      const dateCard = document.createElement('div');
+      dateCard.className = 'date-card';
+      dateCard.textContent = date.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' });
+      dateCard.dataset.date = date.toISOString().split('T')[0];
+      dateCard.addEventListener('click', () => {
+        document.querySelectorAll('.date-card').forEach(c => c.classList.remove('selected'));
+        dateCard.classList.add('selected');
+        selectedDate = dateCard.dataset.date;
+      });
+      datePicker.appendChild(dateCard);
+    }
+    // Select first date by default
+    selectedDate = today.toISOString().split('T')[0];
+    if (datePicker.firstChild) {
+      datePicker.firstChild.classList.add('selected');
+    }
+  }
 
-      const card = button.closest(".service-card");
-
-      if (!card) return;
-
-      const service = card.dataset.service;
-
-      const checkbox = document.querySelector(
-        `.service-check input[value="${CSS.escape(service)}"]`
-      );
-
-      if (checkbox) {
-        checkbox.checked = true;
+  // Generate Time Slots
+  function generateTimeSlots() {
+    const timeSlots = ['9:00 AM', '10:30 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM'];
+    const unavailableSlots = ['2:00 PM']; // Configure unavailable slots here
+    
+    timeContainer.innerHTML = '';
+    timeSlots.forEach(time => {
+      const slot = document.createElement('div');
+      slot.className = 'time-slot';
+      slot.textContent = time;
+      
+      if (unavailableSlots.includes(time)) {
+        slot.classList.add('unavailable');
+      } else {
+        slot.addEventListener('click', () => {
+          document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+          slot.classList.add('selected');
+          selectedTime = time;
+        });
       }
-
-      state.services = getSelectedServices();
-
-      scrollToBooking();
-
-      showBookingStep(2);
-
-      updateServiceVisuals();
-
-      showToast(`${service} selected`);
-
+      
+      timeContainer.appendChild(slot);
     });
-
-  });
-
-}
-
-
-/* =========================================================
-   BOOKING SERVICE CHECKBOXES
-   ========================================================= */
-
-function setupBookingServices() {
-
-  document.querySelectorAll(".service-check input").forEach(input => {
-
-    input.addEventListener("change", () => {
-
-      state.services = getSelectedServices();
-
-      updateServiceVisuals();
-
-    });
-
-  });
-
-}
-
-
-function getSelectedServices() {
-
-  return [...document.querySelectorAll(".service-check input:checked")]
-    .map(input => input.value);
-
-}
-
-
-function updateServiceVisuals() {
-
-  document.querySelectorAll(".service-check").forEach(item => {
-
-    const checkbox = item.querySelector("input");
-
-    item.classList.toggle("selected", checkbox.checked);
-
-  });
-
-}
-
-
-/* =========================================================
-   PEOPLE SELECTOR
-   ========================================================= */
-
-function setupPeopleSelector() {
-
-  document.querySelectorAll(".people-option").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      document.querySelectorAll(".people-option")
-        .forEach(item => item.classList.remove("selected"));
-
-      button.classList.add("selected");
-
-      state.people = button.dataset.people;
-
-    });
-
-  });
-
-}
-
-
-/* =========================================================
-   BOOKING STEPS
-   ========================================================= */
-
-function setupBookingSteps() {
-
-  document.querySelectorAll(".next-step").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      const currentStep = Number(
-        button.closest(".booking-step").dataset.step
-      );
-
-      if (validateStep(currentStep)) {
-
-        showBookingStep(currentStep + 1);
-
-      }
-
-    });
-
-  });
-
-
-  document.querySelectorAll(".prev-step").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      const currentStep = Number(
-        button.closest(".booking-step").dataset.step
-      );
-
-      showBookingStep(currentStep - 1);
-
-    });
-
-  });
-
-
-  document.getElementById("confirmBtn")
-    ?.addEventListener("click", confirmAppointment);
-
-}
-
-
-function showBookingStep(step) {
-
-  if (step < 1 || step > 4) return;
-
-  state.step = step;
-
-  document.querySelectorAll(".booking-step").forEach(section => {
-
-    section.classList.toggle(
-      "active",
-      Number(section.dataset.step) === step
-    );
-
-  });
-
-
-  document.querySelectorAll(".progress-item").forEach(item => {
-
-    const itemStep = Number(item.dataset.stepIndicator);
-
-    item.classList.toggle("active", itemStep === step);
-    item.classList.toggle("done", itemStep < step);
-
-  });
-
-
-  if (step === 4) {
-
-    updateSummary();
-
   }
 
-}
-
-
-/* =========================================================
-   VALIDATION
-   ========================================================= */
-
-function validateStep(step) {
-
-  clearErrors();
-
-  if (step === 1) {
-
-    const name = document.getElementById("customerName");
-    const phone = document.getElementById("phone");
-    const email = document.getElementById("email");
-
-    let valid = true;
-
-    if (name.value.trim().length < 2) {
-
-      showFieldError(name, "Please enter your full name.");
-      valid = false;
-
-    }
-
-    const cleanPhone = phone.value.replace(/\D/g, "");
-
-    if (cleanPhone.length !== 10) {
-
-      showFieldError(phone, "Enter a valid 10-digit mobile number.");
-      valid = false;
-
-    }
-
-    if (!isValidEmail(email.value.trim())) {
-
-      showFieldError(email, "Enter a valid email address.");
-      valid = false;
-
-    }
-
-    if (!state.people) {
-
-      document.getElementById("peopleError").textContent =
-        "Please select the number of people.";
-
-      valid = false;
-
-    }
-
-    return valid;
+  // Show Step
+  function showStep(step) {
+    const stepPanels = document.querySelectorAll('.step-panel');
+    const stepIndicators = document.querySelectorAll('.step-indicator');
+    
+    stepPanels.forEach((panel, index) => {
+      panel.classList.toggle('active', index === step - 1);
+    });
+    
+    stepIndicators.forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === step - 1);
+    });
+    
+    currentStep = step;
+    
+    // Scroll to top of booking section on step change
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-
-  if (step === 2) {
-
-    state.services = getSelectedServices();
-
-    const error = document.getElementById("serviceError");
-
-    if (state.services.length === 0) {
-
-      error.textContent = "Please select at least one service.";
+  // Validate Step 1
+  function validateStep1() {
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    
+    if (!name) {
+      alert('Please enter your full name');
       return false;
-
     }
-
+    
+    if (!phone || phone.length < 10) {
+      alert('Please enter a valid phone number');
+      return false;
+    }
+    
     return true;
   }
 
-
-  if (step === 3) {
-
-    let valid = true;
-
-    if (!state.date) {
-
-      document.getElementById("dateError").textContent =
-        "Please select an appointment date.";
-
-      valid = false;
-
-    }
-
-    if (!state.time) {
-
-      document.getElementById("dateError").textContent +=
-        " Please select a time slot.";
-
-      valid = false;
-
-    }
-
-    return valid;
-  }
-
-
-  if (step === 4) {
-
-    return validateLocation();
-
-  }
-
-
-  return true;
-}
-
-
-function validateLocation() {
-
-  const address = document.getElementById("address");
-  const city = document.getElementById("city");
-
-  let valid = true;
-
-  if (address.value.trim().length < 10) {
-
-    showFieldError(
-      address,
-      "Please enter the complete appointment address."
-    );
-
-    valid = false;
-
-  }
-
-  if (city.value.trim().length < 2) {
-
-    showFieldError(
-      city,
-      "Please enter the city."
-    );
-
-    valid = false;
-
-  }
-
-  return valid;
-
-}
-
-
-function showFieldError(field, message) {
-
-  field.classList.add("invalid");
-
-  const wrapper = field.closest(".field");
-
-  if (!wrapper) return;
-
-  const error = wrapper.querySelector(".field-error");
-
-  if (error) {
-    error.textContent = message;
-  }
-
-}
-
-
-function clearErrors() {
-
-  document.querySelectorAll(".field-error")
-    .forEach(error => error.textContent = "");
-
-  document.querySelectorAll(".invalid")
-    .forEach(field => field.classList.remove("invalid"));
-
-}
-
-
-/* =========================================================
-   DYNAMIC DATES
-   ========================================================= */
-
-function setupDates() {
-
-  const scroller = document.getElementById("dateScroller");
-
-  if (!scroller) return;
-
-  scroller.innerHTML = "";
-
-  const today = new Date();
-
-  for (let i = 0; i < 45; i++) {
-
-    const date = new Date(today);
-
-    date.setHours(0,0,0,0);
-    date.setDate(today.getDate() + i);
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-
-    const iso = `${year}-${month}-${day}`;
-
-    const weekday = date.toLocaleDateString("en-US", {
-      weekday: "short"
-    }).toUpperCase();
-
-    const monthName = date.toLocaleDateString("en-US", {
-      month: "short"
-    }).toUpperCase();
-
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = "date-card";
-
-    button.dataset.date = iso;
-
-    button.innerHTML = `
-      <small>${weekday}</small>
-      <strong>${day}</strong>
-      <span>${monthName}</span>
+  // Update Booking Summary
+  function updateSummary() {
+    const name = document.getElementById('custName').value || 'N/A';
+    const phone = document.getElementById('custPhone').value || 'N/A';
+    const email = document.getElementById('custEmail').value || 'N/A';
+    const people = document.getElementById('custPeople').value || '1';
+    const address = document.getElementById('locAddress').value || 'N/A';
+    const city = document.getElementById('locCity').value || 'N/A';
+    const landmark = document.getElementById('locLandmark').value || 'N/A';
+    
+    const selectedServiceNames = [...document.querySelectorAll('.serviceCheck:checked')].map(c => c.value);
+    const servicesString = selectedServiceNames.length > 0 ? selectedServiceNames.join(', ') : 'Not selected';
+    
+    const bookingId = 'MK-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+    
+    const summaryHTML = `
+      <div class="summary-item"><strong>Booking ID:</strong> ${bookingId}</div>
+      <div class="summary-item"><strong>Name:</strong> ${name}</div>
+      <div class="summary-item"><strong>Phone:</strong> ${phone}</div>
+      <div class="summary-item"><strong>Email:</strong> ${email}</div>
+      <div class="summary-item"><strong>Number of People:</strong> ${people}</div>
+      <div class="summary-item"><strong>Services:</strong> ${servicesString}</div>
+      <div class="summary-item"><strong>Date:</strong> ${selectedDate}</div>
+      <div class="summary-item"><strong>Time:</strong> ${selectedTime || 'Not selected'}</div>
+      <div class="summary-item"><strong>Address:</strong> ${address}, ${city}, ${landmark}</div>
+      <div class="summary-item"><strong>Payment Method:</strong> Cash on Appointment</div>
     `;
+    
+    document.getElementById('bookingSummary').innerHTML = summaryHTML;
+    
+    // Store booking data globally for later use
+    window.bookingData = {
+      bookingId,
+      name,
+      phone,
+      email,
+      people,
+      services: servicesString,
+      date: selectedDate,
+      time: selectedTime || 'Not selected',
+      address,
+      city,
+      landmark
+    };
+  }
 
-    button.addEventListener("click", () => {
-
-      selectDate(iso, date, button);
-
+  // Initialize everything
+  function init() {
+    renderServices();
+    renderServiceCheckboxes();
+    renderGallery('all');
+    renderReviews();
+    generateDates();
+    generateTimeSlots();
+    
+    // Gallery filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        renderGallery(e.target.dataset.cat);
+      });
     });
-
-    scroller.appendChild(button);
-
-  }
-
-
-  // Automatically select today's date
-  const firstDate = scroller.querySelector(".date-card");
-
-  if (firstDate) {
-
-    const todayDate = new Date();
-
-    selectDate(
-      firstDate.dataset.date,
-      todayDate,
-      firstDate
-    );
-
-  }
-
-}
-
-
-function selectDate(iso, dateObject, button) {
-
-  state.date = iso;
-
-  state.dateLabel = dateObject.toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  });
-
-  document.querySelectorAll(".date-card")
-    .forEach(item => item.classList.remove("selected"));
-
-  button?.classList.add("selected");
-
-  const calendar = document.getElementById("calendarDate");
-
-  if (calendar) {
-    calendar.value = iso;
-  }
-
-  updateTimeAvailability();
-
-  state.time = "";
-
-  document.querySelectorAll(".time-slot")
-    .forEach(slot => slot.classList.remove("selected"));
-
-}
-
-
-/* =========================================================
-   CALENDAR FALLBACK
-   ========================================================= */
-
-function setupCalendarFallback() {
-
-  const calendar = document.getElementById("calendarDate");
-
-  if (!calendar) return;
-
-  const today = new Date();
-
-  const yyyy = today.getFullYear();
-  const mm = String(today.getMonth() + 1).padStart(2, "0");
-  const dd = String(today.getDate()).padStart(2, "0");
-
-  const todayISO = `${yyyy}-${mm}-${dd}`;
-
-  calendar.min = todayISO;
-
-  calendar.addEventListener("change", () => {
-
-    if (!calendar.value) return;
-
-    const selectedDate = new Date(
-      `${calendar.value}T00:00:00`
-    );
-
-    const card = document.querySelector(
-      `.date-card[data-date="${calendar.value}"]`
-    );
-
-    selectDate(
-      calendar.value,
-      selectedDate,
-      card
-    );
-
-    if (!card) {
-
-      document.querySelectorAll(".date-card")
-        .forEach(item => item.classList.remove("selected"));
-
-    }
-
-  });
-
-}
-
-
-/* =========================================================
-   TIME SLOTS
-   ========================================================= */
-
-function setupTimeSlots() {
-
-  document.querySelectorAll(".time-slot").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      if (button.disabled || button.classList.contains("unavailable")) {
+    
+    // Lightbox events
+    lightbox.addEventListener('click', closeLightbox);
+    lightboxClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeLightbox();
+    });
+    
+    // Navigation events
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('show');
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('show');
+      });
+    });
+    
+    // Step indicator clicks
+    document.querySelectorAll('.step-indicator').forEach(indicator => {
+      indicator.addEventListener('click', (e) => {
+        const step = parseInt(e.target.dataset.step);
+        if (step < currentStep || step === currentStep) {
+          showStep(step);
+        }
+      });
+    });
+    
+    // Step navigation buttons
+    document.getElementById('toStep2').addEventListener('click', () => {
+      if (validateStep1()) {
+        showStep(2);
+      }
+    });
+    
+    document.getElementById('toStep3').addEventListener('click', () => {
+      showStep(3);
+    });
+    
+    document.getElementById('toStep4').addEventListener('click', () => {
+      if (!selectedDate) {
+        alert('Please select a date');
         return;
       }
-
-      document.querySelectorAll(".time-slot")
-        .forEach(slot => slot.classList.remove("selected"));
-
-      button.classList.add("selected");
-
-      state.time = button.dataset.time;
-
+      showStep(4);
     });
-
-  });
-
-}
-
-
-function updateTimeAvailability() {
-
-  const unavailable =
-    CONFIG.unavailableSlots[state.date] || [];
-
-  document.querySelectorAll(".time-slot").forEach(slot => {
-
-    const time = slot.dataset.time;
-
-    const isUnavailable =
-      unavailable.includes(time);
-
-    slot.disabled = isUnavailable;
-    slot.classList.toggle("unavailable", isUnavailable);
-
-    if (isUnavailable) {
-      slot.classList.remove("selected");
-    }
-
-  });
-
-}
-
-
-/* =========================================================
-   SUMMARY
-   ========================================================= */
-
-function updateSummary() {
-
-  state.services = getSelectedServices();
-
-  document.getElementById("summaryName").textContent =
-    document.getElementById("customerName").value.trim() || "—";
-
-  document.getElementById("summaryPhone").textContent =
-    document.getElementById("phone").value.trim() || "—";
-
-  document.getElementById("summaryEmail").textContent =
-    document.getElementById("email").value.trim() || "—";
-
-  document.getElementById("summaryPeople").textContent =
-    state.people || "—";
-
-  document.getElementById("summaryServices").textContent =
-    state.services.length
-      ? state.services.join(", ")
-      : "—";
-
-  document.getElementById("summaryDate").textContent =
-    state.dateLabel || "—";
-
-  document.getElementById("summaryTime").textContent =
-    state.time || "—";
-
-  document.getElementById("summaryAddress").textContent =
-    document.getElementById("address").value.trim() || "—";
-
-  document.getElementById("summaryCity").textContent =
-    document.getElementById("city").value.trim() || "—";
-
-  if (!state.bookingId) {
-    state.bookingId = generateBookingId();
-  }
-
-  document.getElementById("summaryId").textContent =
-    state.bookingId;
-
-}
-
-
-/* =========================================================
-   CONFIRM APPOINTMENT
-   ========================================================= */
-
-function confirmAppointment() {
-
-  if (!validateStep(4)) {
-    return;
-  }
-
-  state.services = getSelectedServices();
-
-  if (!state.bookingId) {
-    state.bookingId = generateBookingId();
-  }
-
-  state.booking = {
-
-    bookingId: state.bookingId,
-
-    name: document.getElementById("customerName")
-      .value.trim(),
-
-    phone: document.getElementById("phone")
-      .value.trim(),
-
-    email: document.getElementById("email")
-      .value.trim(),
-
-    people: state.people,
-
-    services: [...state.services],
-
-    date: state.dateLabel,
-
-    time: state.time,
-
-    address: document.getElementById("address")
-      .value.trim(),
-
-    city: document.getElementById("city")
-      .value.trim(),
-
-    landmark: document.getElementById("landmark")
-      .value.trim(),
-
-    payment: CONFIG.paymentMethod
-
-  };
-
-
-  showSuccessPanel();
-
-}
-
-
-/* =========================================================
-   BOOKING ID
-   ========================================================= */
-
-function generateBookingId() {
-
-  const year = new Date().getFullYear();
-
-  const random =
-    Math.floor(1000 + Math.random() * 9000);
-
-  return `MH-${year}-${random}`;
-
-}
-
-
-/* =========================================================
-   SUCCESS PANEL
-   ========================================================= */
-
-function showSuccessPanel() {
-
-  document.getElementById("bookingForm")
-    .style.display = "none";
-
-  document.querySelector(".booking-progress")
-    .style.display = "none";
-
-  document.getElementById("successPanel")
-    .classList.add("active");
-
-  document.getElementById("successId")
-    .textContent = state.booking.bookingId;
-
-  renderSuccessDetails();
-
-}
-
-
-function renderSuccessDetails() {
-
-  const b = state.booking;
-
-  const container =
-    document.getElementById("successDetails");
-
-  container.innerHTML = `
-
-    <div class="success-detail">
-      <span>Customer</span>
-      <strong>${escapeHTML(b.name)}</strong>
-    </div>
-
-    <div class="success-detail">
-      <span>Services</span>
-      <strong>${escapeHTML(b.services.join(", "))}</strong>
-    </div>
-
-    <div class="success-detail">
-      <span>People</span>
-      <strong>${escapeHTML(b.people)}</strong>
-    </div>
-
-    <div class="success-detail">
-      <span>Date</span>
-      <strong>${escapeHTML(b.date)}</strong>
-    </div>
-
-    <div class="success-detail">
-      <span>Time</span>
-      <strong>${escapeHTML(b.time)}</strong>
-    </div>
-
-    <div class="success-detail">
-      <span>Address</span>
-      <strong>${escapeHTML(b.address)}, ${escapeHTML(b.city)}</strong>
-    </div>
-
-    <div class="success-detail">
-      <span>Payment</span>
-      <strong>${escapeHTML(b.payment)}</strong>
-    </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   WHATSAPP MESSAGE
-   ========================================================= */
-
-function buildWhatsAppMessage() {
-
-  const b = state.booking;
-
-  return `NEW APPOINTMENT REQUEST
-
-Booking ID: ${b.bookingId}
-
-Customer Name: ${b.name}
-
-Phone: ${b.phone}
-
-Email: ${b.email}
-
-Number of People: ${b.people}
-
-Services:
-${b.services.map(service => `• ${service}`).join("\n")}
-
-Date: ${b.date}
-
-Time: ${b.time}
-
-Full Address:
-${b.address}
-
-City:
-${b.city}
-
-Landmark:
-${b.landmark || "Not provided"}
-
-Payment:
-Cash on Appointment
-
-Please confirm availability and appointment details.
-
-— Mehak Makeup Artist`;
-}
-
-
-function sendBookingWhatsApp() {
-
-  if (!state.booking) return;
-
-  const message = buildWhatsAppMessage();
-
-  const url =
-    `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-  window.open(url, "_blank");
-
-}
-
-
-/* =========================================================
-   EMAIL
-   ========================================================= */
-
-function buildEmailSubject() {
-
-  const b = state.booking;
-
-  return `New Makeup Appointment - ${b.name} - ${b.date}`;
-
-}
-
-
-function buildEmailBody() {
-
-  const b = state.booking;
-
-  return `NEW MAKEUP APPOINTMENT
-
-Booking ID: ${b.bookingId}
-
-Customer Name: ${b.name}
-
-Phone Number: ${b.phone}
-
-Customer Email: ${b.email}
-
-Number of People: ${b.people}
-
-Services:
-${b.services.map(service => `• ${service}`).join("\n")}
-
-Appointment Date:
-${b.date}
-
-Appointment Time:
-${b.time}
-
-Full Address:
-${b.address}
-
-City:
-${b.city}
-
-Landmark:
-${b.landmark || "Not provided"}
-
-Payment Method:
-Cash on Appointment
-
---------------------------------
-
-This is an appointment request sent from the Mehak Makeup Artist website.
-
-Please confirm availability directly with the customer.`;
-
-}
-
-
-function sendBookingEmail() {
-
-  if (!state.booking) return;
-
-  const subject =
-    encodeURIComponent(buildEmailSubject());
-
-  const body =
-    encodeURIComponent(buildEmailBody());
-
-  const mailto =
-    `mailto:${CONFIG.businessEmail}?subject=${subject}&body=${body}`;
-
-  window.location.href = mailto;
-
-}
-
-
-/* =========================================================
-   SUCCESS BUTTONS
-   ========================================================= */
-
-function setupSuccessButtons() {
-
-  document.getElementById("sendWhatsappBtn")
-    ?.addEventListener("click", sendBookingWhatsApp);
-
-  document.getElementById("sendEmailBtn")
-    ?.addEventListener("click", sendBookingEmail);
-
-  document.getElementById("newBookingBtn")
-    ?.addEventListener("click", resetBooking);
-
-}
-
-
-/* =========================================================
-   RESET BOOKING
-   ========================================================= */
-
-function resetBooking() {
-
-  state.step = 1;
-  state.people = "1";
-  state.services = [];
-  state.date = "";
-  state.dateLabel = "";
-  state.time = "";
-  state.bookingId = "";
-  state.booking = null;
-
-  document.getElementById("bookingForm").reset();
-
-  document.querySelectorAll(".people-option")
-    .forEach(item => item.classList.remove("selected"));
-
-  document.querySelector(".people-option")
-    ?.classList.add("selected");
-
-  document.querySelectorAll(".service-check input")
-    .forEach(input => input.checked = false);
-
-  document.querySelectorAll(".time-slot")
-    .forEach(slot => slot.classList.remove("selected"));
-
-  document.getElementById("successPanel")
-    .classList.remove("active");
-
-  document.getElementById("bookingForm")
-    .style.display = "";
-
-  document.querySelector(".booking-progress")
-    .style.display = "";
-
-  showBookingStep(1);
-
-  clearErrors();
-
-  scrollToBooking();
-
-}
-
-
-/* =========================================================
-   WHATSAPP LINKS
-   ========================================================= */
-
-function setupWhatsAppLinks() {
-
-  const message =
-    "Hi Mehak, I would like to enquire about makeup services.";
-
-  const url =
-    `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-  document.querySelectorAll(".whatsapp-link")
-    .forEach(link => {
-
-      link.href = url;
-
-    });
-
-}
-
-
-/* =========================================================
-   GALLERY LIGHTBOX
-   ========================================================= */
-
-function setupGallery() {
-
-  const lightbox =
-    document.getElementById("lightbox");
-
-  const image =
-    document.getElementById("lightboxImage");
-
-  const close =
-    document.getElementById("lightboxClose");
-
-  document.querySelectorAll(".gallery-item")
-    .forEach(item => {
-
-      item.addEventListener("click", () => {
-
-        const src = item.dataset.image;
-
-        image.src = src;
-
-        lightbox.classList.add("active");
-
-        document.body.classList.add("menu-open");
-
-      });
-
-    });
-
-
-  close.addEventListener("click", closeLightbox);
-
-  lightbox.addEventListener("click", event => {
-
-    if (event.target === lightbox) {
-      closeLightbox();
-    }
-
-  });
-
-
-  document.addEventListener("keydown", event => {
-
-    if (event.key === "Escape") {
-      closeLightbox();
-    }
-
-  });
-
-
-  function closeLightbox() {
-
-    lightbox.classList.remove("active");
-
-    document.body.classList.remove("menu-open");
-
-  }
-
-}
-
-
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
-
-function setupRevealAnimations() {
-
-  const elements =
-    document.querySelectorAll(".reveal");
-
-  if (!("IntersectionObserver" in window)) {
-
-    elements.forEach(element => {
-      element.classList.add("visible");
-    });
-
-    return;
-
-  }
-
-  const observer =
-    new IntersectionObserver(
-      entries => {
-
-        entries.forEach(entry => {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add("visible");
-
-            observer.unobserve(entry.target);
-
-          }
-
-        });
-
-      },
-      {
-        threshold: .12
+    
+    document.getElementById('toStep5').addEventListener('click', () => {
+      if (!selectedTime) {
+        alert('Please select a time slot');
+        return;
       }
-    );
-
-  elements.forEach(element => {
-    observer.observe(element);
-  });
-
-}
-
-
-/* =========================================================
-   FORM VALIDATION HELPERS
-   ========================================================= */
-
-function isValidEmail(email) {
-
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-}
-
-
-document.querySelectorAll?.("input, textarea");
-
-
-/* =========================================================
-   INPUT CLEANUP
-   ========================================================= */
-
-document.addEventListener("input", event => {
-
-  const target = event.target;
-
-  if (
-    target.matches("#customerName") ||
-    target.matches("#phone") ||
-    target.matches("#email") ||
-    target.matches("#address") ||
-    target.matches("#city")
-  ) {
-
-    target.classList.remove("invalid");
-
-    const error =
-      target.closest(".field")?.querySelector(".field-error");
-
-    if (error) {
-      error.textContent = "";
-    }
-
+      showStep(5);
+    });
+    
+    document.getElementById('toStep6').addEventListener('click', () => {
+      updateSummary();
+      showStep(6);
+    });
+    
+    // Confirm booking
+    document.getElementById('confirmBooking').addEventListener('click', () => {
+      updateSummary();
+      // Hide step panels and show success
+      document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('bookingSuccess').style.display = 'block';
+    });
+    
+    // WhatsApp send
+    document.getElementById('sendWhatsApp').addEventListener('click', () => {
+      const data = window.bookingData;
+      if (!data) return;
+      
+      const message = `Appointment Request%0A%0A📋 Booking ID: ${data.bookingId}%0A👤 Name: ${data.name}%0A📞 Phone: ${data.phone}%0A✉️ Email: ${data.email}%0A👥 People: ${data.people}%0A💄 Services: ${data.services}%0A📅 Date: ${data.date}%0A⏰ Time: ${data.time}%0A📍 Address: ${data.address}, ${data.city}, ${data.landmark}%0A💵 Payment: Cash on Appointment`;
+      
+      window.open(`https://wa.me/919310151087?text=${message}`, '_blank');
+    });
+    
+    // Email send
+    document.getElementById('sendEmail').addEventListener('click', () => {
+      const data = window.bookingData;
+      if (!data) return;
+      
+      const subject = `Appointment Request - ${data.bookingId}`;
+      const body = `Booking ID: ${data.bookingId}\nName: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nNumber of People: ${data.people}\nServices: ${data.services}\nDate: ${data.date}\nTime: ${data.time}\nAddress: ${data.address}, ${data.city}, ${data.landmark}\nPayment Method: Cash on Appointment`;
+      
+      window.location.href = `mailto:golobbygamerz@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+    
+    // Hero and contact book buttons
+    document.getElementById('heroBookBtn').addEventListener('click', () => {
+      showStep(1);
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    document.getElementById('contactBook').addEventListener('click', () => {
+      showStep(1);
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 30);
+    });
+    
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    revealElements.forEach(el => observer.observe(el));
   }
 
-});
-
-
-/* =========================================================
-   SCROLL TO BOOKING
-   ========================================================= */
-
-function scrollToBooking() {
-
-  const booking =
-    document.getElementById("booking");
-
-  if (!booking) return;
-
-  booking.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-
-}
-
-
-/* =========================================================
-   TOAST
-   ========================================================= */
-
-let toastTimer;
-
-function showToast(message) {
-
-  const toast =
-    document.getElementById("toast");
-
-  const text =
-    document.getElementById("toastText");
-
-  if (!toast || !text) return;
-
-  text.textContent = message;
-
-  toast.classList.add("show");
-
-  clearTimeout(toastTimer);
-
-  toastTimer = setTimeout(() => {
-
-    toast.classList.remove("show");
-
-  }, 2500);
-
-}
-
-
-/* =========================================================
-   SECURITY / DISPLAY HELPER
-   ========================================================= */
-
-function escapeHTML(value) {
-
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-
-}
-
-
-/* =========================================================
-   OPTIONAL DEMO AVAILABILITY EXAMPLE
-
-   To block slots, edit CONFIG at the top:
-
-   unavailableSlots: {
-     "2026-09-01": ["10:30 AM", "4:00 PM"],
-     "2026-09-02": ["12:00 PM"]
-   }
-
-   IMPORTANT:
-   This is only frontend/demo availability.
-   It does NOT synchronize bookings between customers.
-   ========================================================= */
+  // Run initialization when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
