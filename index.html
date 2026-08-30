@@ -3,381 +3,982 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mehak | Professional Makeup Artist</title>
+  <meta name="description" content="Mehak Makeup Artist — Professional bridal, engagement, party makeup and beauty services.">
+  <title>Mehak — Professional Makeup Artist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header>
-  <div class="nav">
-    <div class="logo">MEHAK</div>
-<button id="menuBtn" class="menu-btn">☰</button>
-<nav id="navMenu">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#booking">Book Appointment</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#contact">Contact</a>
-</nav>
-  </div>
-</header>
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-content">
-<p class="eyebrow">PROFESSIONAL MAKEUP ARTIST</p>
-<h1>MEHAK</h1>
-<p class="tagline">Your Beauty, Our Art</p>
-<div>
-  <a href="#booking" class="btn gold">Book Appointment</a>
-  <button id="heroWhatsApp" class="btn white">
-    WhatsApp Me
-  </button>
-</div>
-  </div>
-</section>
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-<div class="section-title">
-  <span>ABOUT MEHAK</span>
-  <h2>Beauty That Feels Uniquely Yours</h2>
-</div>
-<div class="about-grid">
-  <img
-    src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=85"
-    alt="Makeup Artist">
-  <div class="about-text">
-    <h3>Professional Makeup Artist</h3>
-    <p>
-      Mehak creates elegant, modern and personalized makeup
-      looks for weddings, engagements, parties and special occasions.
-    </p>
-    <p>
-      Every look is designed to make you feel confident,
-      beautiful and completely yourself.
-    </p>
-    <p>
-      From soft glam to stunning bridal makeup, your beauty
-      is our art.
-    </p>
-    <a href="#booking" class="btn gold">
-      Reserve Your Appointment
+
+  <!-- Background decoration -->
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <a href="#home" class="brand">
+      <span class="brand-mark">M</span>
+      <span>
+        <strong>MEHAK</strong>
+        <small>MAKEUP ARTIST</small>
+      </span>
     </a>
-  </div>
-</div>
-  </div>
-</section>
-<!-- SERVICES -->
-<section id="services" class="soft">
-  <div class="container">
-<div class="section-title">
-  <span>OUR SERVICES</span>
-  <h2>Signature Beauty Services</h2>
-</div>
-<div class="services-grid">
-  <div class="service-card">
-    <h3>Bridal Makeup</h3>
-    <p>Professional bridal makeup for your big day.</p>
-    <small>Price on request • 2–3 hours</small>
-    <button class="service-btn" data-service="Bridal Makeup">
-      Book Now
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-  </div>
-  <div class="service-card">
-    <h3>Engagement Makeup</h3>
-    <p>Elegant makeup for your engagement ceremony.</p>
-    <small>Price on request • 1.5–2 hours</small>
-    <button class="service-btn" data-service="Engagement Makeup">
-      Book Now
-    </button>
-  </div>
-  <div class="service-card">
-    <h3>Party Makeup</h3>
-    <p>Glamorous makeup for parties and events.</p>
-    <small>Price on request • 1–1.5 hours</small>
-    <button class="service-btn" data-service="Party Makeup">
-      Book Now
-    </button>
-  </div>
-  <div class="service-card">
-    <h3>Reception Makeup</h3>
-    <p>Premium reception-ready makeup.</p>
-    <small>Price on request • 2 hours</small>
-    <button class="service-btn" data-service="Reception Makeup">
-      Book Now
-    </button>
-  </div>
-  <div class="service-card">
-    <h3>HD Makeup</h3>
-    <p>Flawless HD makeup finish for camera-ready looks.</p>
-    <small>Price on request • 1.5–2 hours</small>
-    <button class="service-btn" data-service="HD Makeup">
-      Book Now
-    </button>
-  </div>
-  <div class="service-card">
-    <h3>Hairstyling</h3>
-    <p>Professional hairstyles to complete your look.</p>
-    <small>Price on request • 1 hour</small>
-    <button class="service-btn" data-service="Hairstyling">
-      Book Now
-    </button>
-  </div>
-  <div class="service-card">
-    <h3>Saree Draping</h3>
-    <p>Professional saree draping for your special occasion.</p>
-    <small>Price on request • 30–45 mins</small>
-    <button class="service-btn" data-service="Saree Draping">
-      Book Now
-    </button>
-  </div>
-  <div class="service-card">
-    <h3>Makeup + Hairstyling</h3>
-    <p>Complete beauty package for your occasion.</p>
-    <small>Price on request • 2–3 hours</small>
-    <button class="service-btn" data-service="Makeup + Hairstyling">
-      Book Now
-    </button>
-  </div>
-</div>
-  </div>
-</section>
-<!-- BOOKING -->
-<section id="booking" class="booking">
-  <div class="container">
-<div class="section-title">
-  <span>APPOINTMENT</span>
-  <h2>Reserve Your Beauty Session</h2>
-</div>
-<div class="booking-box">
-  <!-- STEP 1 -->
-  <div class="booking-step active" id="step1">
-    <h3>01 — Customer Details</h3>
-    <label>Full Name *</label>
-    <input id="customerName" type="text" placeholder="Your full name">
-    <div class="two">
-      <div>
-        <label>Mobile / WhatsApp *</label>
-        <input id="customerPhone" type="tel" placeholder="10-digit mobile number">
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#booking" class="nav-book">Book Appointment</a>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero section" id="home">
+      <div class="hero-content reveal">
+        <p class="eyebrow">LUXURY BEAUTY • PROFESSIONAL ARTISTRY</p>
+
+        <h1>
+          Your Beauty,
+          <span>Our Art.</span>
+        </h1>
+
+        <p class="hero-text">
+          Timeless makeup looks crafted especially for your
+          most unforgettable moments.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-primary">
+            <span>Book Appointment</span>
+            <span>↗</span>
+          </a>
+
+          <a href="#" class="btn btn-glass whatsapp-link" target="_blank">
+            <span>WhatsApp Me</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong>08+</strong>
+            <span>Beauty Services</span>
+          </div>
+
+          <div>
+            <strong>100%</strong>
+            <span>Personalized</span>
+          </div>
+
+          <div>
+            <strong>01:01</strong>
+            <span>Beauty Focus</span>
+          </div>
+        </div>
       </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=85"
+            alt="Professional makeup portrait"
+          >
+          <div class="image-glow"></div>
+
+          <div class="floating-card">
+            <span class="floating-icon">✦</span>
+            <div>
+              <strong>Beauty, perfected.</strong>
+              <small>Made for your moment</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="vertical-text">MEHAK • BEAUTY • ARTISTRY</div>
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow">THE ARTIST</p>
+        <h2>Beauty that feels<br><span>uniquely yours.</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <img
+            src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85"
+            alt="Makeup artist beauty setup"
+          >
+
+          <div class="experience-card">
+            <strong>MEHAK</strong>
+            <span>Professional Makeup Artist</span>
+          </div>
+        </div>
+
+        <div class="about-copy reveal">
+          <p class="large-copy">
+            Every face tells a story. My goal is to enhance what makes
+            you feel confident, beautiful and completely yourself.
+          </p>
+
+          <p>
+            From bridal elegance to glamorous party looks, every
+            appointment is designed with attention to detail and
+            your personal style in mind.
+          </p>
+
+          <div class="about-points">
+            <div>
+              <span>01</span>
+              <strong>Personalized Looks</strong>
+              <p>Makeup designed around your features and occasion.</p>
+            </div>
+
+            <div>
+              <span>02</span>
+              <strong>Premium Finish</strong>
+              <p>Elegant, camera-ready results with attention to detail.</p>
+            </div>
+
+            <div>
+              <span>03</span>
+              <strong>Complete Beauty</strong>
+              <p>Makeup, hair styling and draping under one roof.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section class="section services-section" id="services">
+      <div class="section-heading centered reveal">
+        <p class="eyebrow">SIGNATURE SERVICES</p>
+        <h2>Choose your <span>look.</span></h2>
+        <p>
+          Select one or multiple services when making your appointment.
+        </p>
+      </div>
+
+      <div class="services-grid" id="servicesGrid">
+
+        <article class="service-card reveal" data-service="Bridal Makeup">
+          <div class="service-number">01</div>
+          <div class="service-icon">♢</div>
+          <h3>Bridal Makeup</h3>
+          <p>Professional bridal makeup for your unforgettable day.</p>
+          <div class="service-meta">
+            <span>Premium</span>
+            <span>•</span>
+            <span>Price on enquiry</span>
+          </div>
+          <button class="service-book" type="button">Book This <span>↗</span></button>
+        </article>
+
+        <article class="service-card reveal" data-service="Engagement Makeup">
+          <div class="service-number">02</div>
+          <div class="service-icon">✦</div>
+          <h3>Engagement Makeup</h3>
+          <p>Elegant makeup created for your special celebration.</p>
+          <div class="service-meta">
+            <span>Premium</span>
+            <span>•</span>
+            <span>Price on enquiry</span>
+          </div>
+          <button class="service-book" type="button">Book This <span>↗</span></button>
+        </article>
+
+        <article class="service-card reveal" data-service="Party Makeup">
+          <div class="service-number">03</div>
+          <div class="service-icon">✧</div>
+          <h3>Party Makeup</h3>
+          <p>Glamorous makeup for parties, celebrations and events.</p>
+          <div class="service-meta">
+            <span>Glam</span>
+            <span>•</span>
+            <span>Price on enquiry</span>
+          </div>
+          <button class="service-book" type="button">Book This <span>↗</span></button>
+        </article>
+
+        <article class="service-card reveal" data-service="Reception Makeup">
+          <div class="service-number">04</div>
+          <div class="service-icon">♡</div>
+          <h3>Reception Makeup</h3>
+          <p>Premium reception-ready makeup with a polished finish.</p>
+          <div class="service-meta">
+            <span>Premium</span>
+            <span>•</span>
+            <span>Price on enquiry</span>
+          </div>
+          <button class="service-book" type="button">Book This <span>↗</span></button>
+        </article>
+
+        <article class="service-card reveal" data-service="HD Makeup">
+          <div class="service-number">05</div>
+          <div class="service-icon">◈</div>
+          <h3>HD Makeup</h3>
+          <p>Flawless HD finish designed to look beautiful on camera.</p>
+          <div class="service-meta">
+            <span>HD Finish</span>
+            <span>•</span>
+            <span>Price on enquiry</span>
+          </div>
+          <button class="service-book" type="button">Book This <span>↗</span></button>
+        </article>
+
+        <article class="service-card reveal" data-service="Hairstyling">
+          <div class="service-number">06</div>
+          <div class="service-icon">⌁</div>
+          <h3>Hairstyling</h3>
+          <p>Professional hairstyles that complete your beauty look.</p>
+          <div class="service-meta">
+            <span>Styling</span>
+            <span>•</span>
+            <span>Price on enquiry</span>
+          </div>
+          <button class="service-book" type="button">Book This <span>↗</span></button>
+        </article>
+
+        <article class="service-card reveal" data-service="Saree Draping">
+          <div class="service-number">07</div>
+          <div class="service-icon">◇</div>
+          <h3>Saree Draping</h3>
+          <p>Professional saree draping for a perfectly finished look.</p>
+          <div class="service-meta">
+            <span>Styling</span>
+            <span>•</span>
+            <span>Price on enquiry</span>
+          </div>
+          <button class="service-book" type="button">Book This <span>↗</span></button>
+        </article>
+
+        <article class="service-card reveal" data-service="Makeup + Hairstyling">
+          <div class="service-number">08</div>
+          <div class="service-icon">✺</div>
+          <h3>Makeup + Hairstyling</h3>
+          <p>A complete beauty package for your special occasion.</p>
+          <div class="service-meta">
+            <span>Complete</span>
+            <span>•</span>
+            <span>Price on enquiry</span>
+          </div>
+          <button class="service-book" type="button">Book This <span>↗</span></button>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- BOOKING -->
+    <section class="section booking-section" id="booking">
+      <div class="booking-intro reveal">
+        <p class="eyebrow">RESERVE YOUR MOMENT</p>
+        <h2>Let's create your<br><span>perfect look.</span></h2>
+        <p>
+          Fill in your details and send your appointment request
+          directly to Mehak through WhatsApp or email.
+        </p>
+
+        <div class="booking-note">
+          <span>✦</span>
+          <div>
+            <strong>Simple & Personal</strong>
+            <p>Your appointment request is sent directly to Mehak.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-card reveal">
+
+        <div class="booking-progress">
+          <div class="progress-item active" data-step-indicator="1">
+            <span>01</span>
+            <small>Details</small>
+          </div>
+
+          <div class="progress-line"></div>
+
+          <div class="progress-item" data-step-indicator="2">
+            <span>02</span>
+            <small>Services</small>
+          </div>
+
+          <div class="progress-line"></div>
+
+          <div class="progress-item" data-step-indicator="3">
+            <span>03</span>
+            <small>Date & Time</small>
+          </div>
+
+          <div class="progress-line"></div>
+
+          <div class="progress-item" data-step-indicator="4">
+            <span>04</span>
+            <small>Confirm</small>
+          </div>
+        </div>
+
+        <form id="bookingForm" novalidate>
+
+          <!-- STEP 1 -->
+          <div class="booking-step active" data-step="1">
+            <div class="step-heading">
+              <span>01 / CUSTOMER DETAILS</span>
+              <h3>Tell us about you.</h3>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="field full">
+                <label for="customerName">Full Name *</label>
+                <input
+                  type="text"
+                  id="customerName"
+                  name="customerName"
+                  placeholder="Enter your full name"
+                  autocomplete="name"
+                  required
+                >
+                <small class="field-error"></small>
+              </div>
+
+              <div class="field">
+                <label for="phone">Mobile / WhatsApp Number *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="10-digit mobile number"
+                  inputmode="numeric"
+                  autocomplete="tel"
+                  required
+                >
+                <small class="field-error"></small>
+              </div>
+
+              <div class="field">
+                <label for="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                >
+                <small class="field-error"></small>
+              </div>
+
+              <div class="field full">
+                <label>Number of People *</label>
+
+                <div class="people-selector">
+                  <button type="button" class="people-option selected" data-people="1">
+                    <strong>1</strong>
+                    <span>Person</span>
+                  </button>
+
+                  <button type="button" class="people-option" data-people="2">
+                    <strong>2</strong>
+                    <span>People</span>
+                  </button>
+
+                  <button type="button" class="people-option" data-people="3">
+                    <strong>3</strong>
+                    <span>People</span>
+                  </button>
+
+                  <button type="button" class="people-option" data-people="4">
+                    <strong>4</strong>
+                    <span>People</span>
+                  </button>
+
+                  <button type="button" class="people-option" data-people="5+">
+                    <strong>5+</strong>
+                    <span>People</span>
+                  </button>
+                </div>
+
+                <small class="field-error" id="peopleError"></small>
+              </div>
+
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="btn btn-primary next-step">
+                Continue <span>→</span>
+              </button>
+            </div>
+          </div>
+
+
+          <!-- STEP 2 -->
+          <div class="booking-step" data-step="2">
+
+            <div class="step-heading">
+              <span>02 / SERVICES</span>
+              <h3>What are you looking for?</h3>
+              <p>Select one or multiple services.</p>
+            </div>
+
+            <div class="booking-services" id="bookingServices">
+
+              <label class="service-check">
+                <input type="checkbox" value="Bridal Makeup">
+                <span class="check-box"></span>
+                <span class="check-content">
+                  <strong>Bridal Makeup</strong>
+                  <small>Luxury bridal look</small>
+                </span>
+                <span class="check-number">01</span>
+              </label>
+
+              <label class="service-check">
+                <input type="checkbox" value="Engagement Makeup">
+                <span class="check-box"></span>
+                <span class="check-content">
+                  <strong>Engagement Makeup</strong>
+                  <small>Elegant celebration look</small>
+                </span>
+                <span class="check-number">02</span>
+              </label>
+
+              <label class="service-check">
+                <input type="checkbox" value="Party Makeup">
+                <span class="check-box"></span>
+                <span class="check-content">
+                  <strong>Party Makeup</strong>
+                  <small>Glamorous event look</small>
+                </span>
+                <span class="check-number">03</span>
+              </label>
+
+              <label class="service-check">
+                <input type="checkbox" value="Reception Makeup">
+                <span class="check-box"></span>
+                <span class="check-content">
+                  <strong>Reception Makeup</strong>
+                  <small>Polished reception look</small>
+                </span>
+                <span class="check-number">04</span>
+              </label>
+
+              <label class="service-check">
+                <input type="checkbox" value="HD Makeup">
+                <span class="check-box"></span>
+                <span class="check-content">
+                  <strong>HD Makeup</strong>
+                  <small>Camera-ready finish</small>
+                </span>
+                <span class="check-number">05</span>
+              </label>
+
+              <label class="service-check">
+                <input type="checkbox" value="Hairstyling">
+                <span class="check-box"></span>
+                <span class="check-content">
+                  <strong>Hairstyling</strong>
+                  <small>Professional hair styling</small>
+                </span>
+                <span class="check-number">06</span>
+              </label>
+
+              <label class="service-check">
+                <input type="checkbox" value="Saree Draping">
+                <span class="check-box"></span>
+                <span class="check-content">
+                  <strong>Saree Draping</strong>
+                  <small>Professional draping</small>
+                </span>
+                <span class="check-number">07</span>
+              </label>
+
+              <label class="service-check">
+                <input type="checkbox" value="Makeup + Hairstyling">
+                <span class="check-box"></span>
+                <span class="check-content">
+                  <strong>Makeup + Hairstyling</strong>
+                  <small>Complete beauty package</small>
+                </span>
+                <span class="check-number">08</span>
+              </label>
+
+            </div>
+
+            <small class="field-error" id="serviceError"></small>
+
+            <div class="step-actions split">
+              <button type="button" class="btn btn-outline prev-step">
+                ← Back
+              </button>
+
+              <button type="button" class="btn btn-primary next-step">
+                Continue <span>→</span>
+              </button>
+            </div>
+          </div>
+
+
+          <!-- STEP 3 -->
+          <div class="booking-step" data-step="3">
+
+            <div class="step-heading">
+              <span>03 / DATE & TIME</span>
+              <h3>Choose your moment.</h3>
+              <p>Past dates are automatically disabled.</p>
+            </div>
+
+            <div class="date-section">
+              <div class="mini-label">SELECT DATE</div>
+
+              <div class="date-scroller" id="dateScroller"></div>
+
+              <div class="calendar-fallback">
+                <label for="calendarDate">Or choose a date</label>
+                <input type="date" id="calendarDate">
+              </div>
+            </div>
+
+            <div class="time-section">
+              <div class="mini-label">SELECT TIME SLOT</div>
+
+              <div class="time-grid" id="timeGrid">
+                <button type="button" class="time-slot" data-time="9:00 AM">9:00 AM</button>
+                <button type="button" class="time-slot" data-time="10:30 AM">10:30 AM</button>
+                <button type="button" class="time-slot" data-time="12:00 PM">12:00 PM</button>
+                <button type="button" class="time-slot" data-time="2:00 PM">2:00 PM</button>
+                <button type="button" class="time-slot" data-time="4:00 PM">4:00 PM</button>
+                <button type="button" class="time-slot" data-time="6:00 PM">6:00 PM</button>
+              </div>
+
+              <p class="availability-note">
+                <span></span>
+                Availability shown is a demo. Final confirmation is handled directly by Mehak.
+              </p>
+
+              <small class="field-error" id="dateError"></small>
+            </div>
+
+            <div class="step-actions split">
+              <button type="button" class="btn btn-outline prev-step">
+                ← Back
+              </button>
+
+              <button type="button" class="btn btn-primary next-step">
+                Continue <span>→</span>
+              </button>
+            </div>
+          </div>
+
+
+          <!-- STEP 4 -->
+          <div class="booking-step" data-step="4">
+
+            <div class="step-heading">
+              <span>04 / LOCATION & CONFIRMATION</span>
+              <h3>Where should we meet?</h3>
+              <p>Please provide the complete appointment location.</p>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="field full">
+                <label for="address">Full Address *</label>
+                <textarea
+                  id="address"
+                  name="address"
+                  rows="4"
+                  placeholder="House / Flat No., Street, Area, complete address..."
+                  required
+                ></textarea>
+                <small class="field-error"></small>
+              </div>
+
+              <div class="field">
+                <label for="city">City *</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder="Enter city"
+                  required
+                >
+                <small class="field-error"></small>
+              </div>
+
+              <div class="field">
+                <label for="landmark">Landmark</label>
+                <input
+                  type="text"
+                  id="landmark"
+                  name="landmark"
+                  placeholder="Nearby landmark (optional)"
+                >
+              </div>
+
+            </div>
+
+            <div class="cash-card">
+              <div class="cash-icon">₹</div>
+              <div>
+                <span>PAYMENT METHOD</span>
+                <strong>CASH ON APPOINTMENT</strong>
+                <p>No online payment required. Payment will be collected in cash at the appointment.</p>
+              </div>
+            </div>
+
+            <div class="summary-box" id="bookingSummary">
+              <div class="summary-title">
+                <span>APPOINTMENT SUMMARY</span>
+                <strong id="summaryId">MH-2026-0000</strong>
+              </div>
+
+              <div class="summary-content">
+
+                <div class="summary-row">
+                  <span>Customer</span>
+                  <strong id="summaryName">—</strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>Phone</span>
+                  <strong id="summaryPhone">—</strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>Email</span>
+                  <strong id="summaryEmail">—</strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>People</span>
+                  <strong id="summaryPeople">—</strong>
+                </div>
+
+                <div class="summary-row vertical">
+                  <span>Services</span>
+                  <strong id="summaryServices">—</strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>Date</span>
+                  <strong id="summaryDate">—</strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>Time</span>
+                  <strong id="summaryTime">—</strong>
+                </div>
+
+                <div class="summary-row vertical">
+                  <span>Address</span>
+                  <strong id="summaryAddress">—</strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>City</span>
+                  <strong id="summaryCity">—</strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>Payment</span>
+                  <strong>Cash on Appointment</strong>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="step-actions split">
+              <button type="button" class="btn btn-outline prev-step">
+                ← Back
+              </button>
+
+              <button type="button" class="btn btn-primary" id="confirmBtn">
+                Confirm Appointment <span>→</span>
+              </button>
+            </div>
+
+          </div>
+
+        </form>
+
+
+        <!-- SUCCESS -->
+        <div class="success-panel" id="successPanel">
+
+          <div class="success-symbol">✓</div>
+
+          <p class="eyebrow">APPOINTMENT REQUEST READY</p>
+
+          <h3>Thank you for choosing<br><span>Mehak Makeup Artist.</span></h3>
+
+          <p class="success-text">
+            Your appointment details are ready. Send them directly
+            to Mehak through WhatsApp or email below.
+          </p>
+
+          <div class="success-booking-id">
+            <span>BOOKING ID</span>
+            <strong id="successId">MH-2026-0000</strong>
+          </div>
+
+          <div class="success-details" id="successDetails"></div>
+
+          <div class="success-actions">
+
+            <button type="button" class="btn btn-whatsapp" id="sendWhatsappBtn">
+              <span>◉</span>
+              Send Booking on WhatsApp
+              <span>↗</span>
+            </button>
+
+            <button type="button" class="btn btn-email" id="sendEmailBtn">
+              <span>✉</span>
+              Send Booking by Email
+              <span>↗</span>
+            </button>
+
+            <button type="button" class="text-button" id="newBookingBtn">
+              Make another booking
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- GALLERY -->
+    <section class="section gallery-section" id="gallery">
+
+      <div class="section-heading centered reveal">
+        <p class="eyebrow">THE GALLERY</p>
+        <h2>Moments of <span>beauty.</span></h2>
+        <p>Explore a selection of beauty-inspired looks and artistry.</p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <button class="gallery-item large reveal" data-image="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=85" alt="Bridal beauty">
+          <span>Bridal Beauty</span>
+        </button>
+
+        <button class="gallery-item reveal" data-image="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=85" alt="Beauty makeup">
+          <span>Client Look</span>
+        </button>
+
+        <button class="gallery-item reveal" data-image="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85" alt="Makeup products">
+          <span>Beauty Details</span>
+        </button>
+
+        <button class="gallery-item reveal" data-image="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=700&q=85" alt="Makeup artistry">
+          <span>Artistry</span>
+        </button>
+
+        <button class="gallery-item large reveal" data-image="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=900&q=85" alt="Makeup portrait">
+          <span>Glam Look</span>
+        </button>
+
+        <button class="gallery-item reveal" data-image="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85" alt="Elegant style">
+          <span>Elegant Style</span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- REVIEWS -->
+    <section class="section reviews-section" id="reviews">
+
+      <div class="section-heading centered reveal">
+        <p class="eyebrow">KIND WORDS</p>
+        <h2>Loved by <span>clients.</span></h2>
+      </div>
+
+      <div class="reviews-grid">
+
+        <article class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            “The whole experience felt so personal. The makeup looked
+            elegant and beautiful throughout the event.”
+          </p>
+          <div class="review-author">
+            <span>R</span>
+            <div>
+              <strong>Riya</strong>
+              <small>Bridal Client</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card featured reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            “Absolutely loved my look. The attention to detail was
+            amazing and everything felt beautifully organized.”
+          </p>
+          <div class="review-author">
+            <span>A</span>
+            <div>
+              <strong>Ananya</strong>
+              <small>Engagement Client</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            “Beautiful makeup, lovely styling and such a comfortable
+            experience. Would definitely book again.”
+          </p>
+          <div class="review-author">
+            <span>S</span>
+            <div>
+              <strong>Simran</strong>
+              <small>Party Client</small>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+
+      <div class="contact-card reveal">
+
+        <div class="contact-main">
+          <p class="eyebrow">LET'S CONNECT</p>
+          <h2>Ready for your<br><span>beauty moment?</span></h2>
+          <p>
+            Have a question or want to discuss your look?
+            Get in touch with Mehak directly.
+          </p>
+
+          <a href="#booking" class="btn btn-primary">
+            Book Appointment <span>↗</span>
+          </a>
+        </div>
+
+        <div class="contact-details">
+
+          <a href="#" class="contact-item whatsapp-link" target="_blank">
+            <span class="contact-icon">◉</span>
+            <div>
+              <small>WHATSAPP</small>
+              <strong>Chat with Mehak</strong>
+            </div>
+            <span>↗</span>
+          </a>
+
+          <a href="mailto:golobbygamerz@gmail.com" class="contact-item">
+            <span class="contact-icon">✉</span>
+            <div>
+              <small>EMAIL</small>
+              <strong>golobbygamerz@gmail.com</strong>
+            </div>
+            <span>↗</span>
+          </a>
+
+          <a href="#" class="contact-item">
+            <span class="contact-icon">◎</span>
+            <div>
+              <small>INSTAGRAM</small>
+              <strong>Mehak Makeup Artist</strong>
+            </div>
+            <span>↗</span>
+          </a>
+
+          <div class="contact-item">
+            <span class="contact-icon">⌖</span>
+            <div>
+              <small>LOCATION</small>
+              <strong>Available for appointments</strong>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <span class="brand-mark">M</span>
       <div>
-        <label>Email Address *</label>
-        <input id="customerEmail" type="email" placeholder="your@email.com">
+        <strong>MEHAK</strong>
+        <small>PROFESSIONAL MAKEUP ARTIST</small>
       </div>
     </div>
-    <label>Number of People *</label>
-    <div class="people">
-      <button data-people="1">1 Person</button>
-      <button data-people="2">2 People</button>
-      <button data-people="3">3 People</button>
-      <button data-people="4">4 People</button>
-      <button data-people="5+">5+ People</button>
-    </div>
-    <button id="next1" class="continue">
-      Continue →
-    </button>
-  </div>
-  <!-- STEP 2 -->
-  <div class="booking-step" id="step2">
-    <h3>02 — Select Services</h3>
-    <div class="service-selection">
-      <label>
-        <input type="checkbox" value="Bridal Makeup">
-        Bridal Makeup
-      </label>
-      <label>
-        <input type="checkbox" value="Engagement Makeup">
-        Engagement Makeup
-      </label>
-      <label>
-        <input type="checkbox" value="Party Makeup">
-        Party Makeup
-      </label>
-      <label>
-        <input type="checkbox" value="Reception Makeup">
-        Reception Makeup
-      </label>
-      <label>
-        <input type="checkbox" value="HD Makeup">
-        HD Makeup
-      </label>
-      <label>
-        <input type="checkbox" value="Hairstyling">
-        Hairstyling
-      </label>
-      <label>
-        <input type="checkbox" value="Saree Draping">
-        Saree Draping
-      </label>
-      <label>
-        <input type="checkbox" value="Makeup + Hairstyling">
-        Makeup + Hairstyling
-      </label>
-    </div>
-    <div class="step-buttons">
-      <button class="back" data-step="1">
-        ← Back
-      </button>
-      <button id="next2" class="continue">
-        Continue →
-      </button>
-    </div>
-  </div>
-  <!-- STEP 3 -->
-  <div class="booking-step" id="step3">
-    <h3>03 — Date & Time</h3>
-    <label>Select Appointment Date *</label>
-    <div id="dateList" class="date-list"></div>
-    <label>Select Time Slot *</label>
-    <div id="timeList" class="time-list"></div>
-    <div class="step-buttons">
-      <button class="back" data-step="2">
-        ← Back
-      </button>
-      <button id="next3" class="continue">
-        Continue →
-      </button>
-    </div>
-  </div>
-  <!-- STEP 4 -->
-  <div class="booking-step" id="step4">
-    <h3>04 — Appointment Location</h3>
-    <label>Full Address *</label>
-    <textarea
-      id="address"
-      rows="5"
-      placeholder="House/Flat No., Street, Area, Building, etc."
-    ></textarea>
-    <div class="two">
-      <div>
-        <label>City *</label>
-        <input id="city" type="text" placeholder="Delhi">
-      </div>
-      <div>
-        <label>Landmark</label>
-        <input id="landmark" type="text" placeholder="Optional">
-      </div>
-    </div>
-    <div class="payment">
-      <h4>💵 CASH ON APPOINTMENT</h4>
-      <p>
-        No online payment required.
-        Payment will be collected in cash at the appointment.
-      </p>
-    </div>
-    <div class="step-buttons">
-      <button class="back" data-step="3">
-        ← Back
-      </button>
-      <button id="confirm" class="continue">
-        Confirm Appointment
-      </button>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="container">
-<div class="section-title">
-  <span>PORTFOLIO</span>
-  <h2>Beauty In Every Detail</h2>
-</div>
-<div class="gallery">
-  <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=900&q=85" alt="Bridal Makeup">
-  <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85" alt="Party Makeup">
-  <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=85" alt="Hairstyling">
-  <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=85" alt="Makeup">
-  <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=85" alt="Beauty">
-  <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85" alt="Reception">
-</div>
-  </div>
-</section>
-<!-- REVIEWS -->
-<section id="reviews" class="soft">
-  <div class="container">
-<div class="section-title">
-  <span>CLIENT REVIEWS</span>
-  <h2>Loved By Clients</h2>
-</div>
-<div class="reviews">
-  <div class="review">
-    <div class="stars">★★★★★</div>
-    <p>
-      “The makeup was elegant and exactly what I wanted.”
-    </p>
-    <strong>— Aanya</strong>
-  </div>
-  <div class="review">
-    <div class="stars">★★★★★</div>
-    <p>
-      “Mehak understood my look perfectly. Highly recommended.”
-    </p>
-    <strong>— Priya</strong>
-  </div>
-  <div class="review">
-    <div class="stars">★★★★★</div>
-    <p>
-      “Loved the makeup and hairstyle. Everything looked beautiful.”
-    </p>
-    <strong>— Simran</strong>
-  </div>
-</div>
-  </div>
-</section>
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="container">
-<div class="section-title">
-  <span>CONTACT</span>
-  <h2>Let's Create Your Perfect Look</h2>
-</div>
-<p>Mehak Makeup Artist</p>
-<p>
-  Email:
-  <strong>golobbygamerz@gmail.com</strong>
-</p>
-<div class="contact-buttons">
-  <button id="contactWhatsApp" class="btn gold">
-    WhatsApp Mehak
-  </button>
-  <a
-    href="mailto:golobbygamerz@gmail.com"
-    class="btn white"
-  >
-    Email Mehak
+
+    <p>© 2026 Mehak Makeup Artist. All rights reserved.</p>
+
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="#" class="floating-whatsapp whatsapp-link" target="_blank" aria-label="Chat on WhatsApp">
+    <span class="wa-ring"></span>
+    <span class="wa-symbol">◉</span>
+    <span class="wa-tooltip">Chat with Mehak</span>
   </a>
-</div>
+
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <img id="lightboxImage" src="" alt="Gallery preview">
   </div>
-</section>
-<footer>
-  © 2026 Mehak Makeup Artist
-</footer>
-<!-- FLOATING WHATSAPP -->
-<button id="floatingWhatsApp" class="floating-whatsapp">
-  WhatsApp
-</button>
-<!-- SUCCESS MODAL -->
-<div id="successModal" class="modal">
-  <div class="modal-box">
-<button id="closeModal" class="close">
-  ×
-</button>
-<h2>Appointment Request Ready!</h2>
-<p>
-  Thank you for choosing Mehak Makeup Artist.
-</p>
-<div id="summary" class="summary"></div>
-<button id="sendWhatsApp" class="whatsapp-btn">
-  📱 Send Booking on WhatsApp
-</button>
-<button id="sendEmail" class="email-btn">
-  ✉️ Send Booking by Email
-</button>
+
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <span>✓</span>
+    <p id="toastText">Done</p>
   </div>
-</div>
-<script src="script.js"></script>
+
+
+  <script src="script.js"></script>
+
 </body>
 </html>
