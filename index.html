@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roast House — small-batch coffee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <span class="wordmark">Roast House</span>
+    <nav class="header-nav">
+      <a href="#shop">Shop</a>
+      <a href="#about">Our process</a>
+    </nav>
+    <button class="cart-toggle" id="cartToggle" aria-label="Open cart">
+      Bag <span id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Roasted Tuesdays &amp; Fridays, shipped within 48 hours</p>
+    <h1>Coffee roasted<br>to the day it ships.</h1>
+    <p class="hero-sub">Four bags. No inventory sitting around. Small batches from one roaster, one address, so what you get is what left the drum that week.</p>
+    <a href="#shop" class="btn btn-primary">See this week's roast</a>
+  </div>
+</section>
+
+<section id="shop" class="shop wrap">
+  <h2 class="section-title">This week's bags</h2>
+  <div class="grid" id="productGrid"></div>
+</section>
+
+<section id="about" class="about wrap">
+  <div class="about-grid">
+    <div>
+      <p class="eyebrow">01 — Sourced</p>
+      <h3>Direct-trade lots, named farms</h3>
+      <p>Every bag lists the farm, the elevation, and the process. No blends of anonymous origin.</p>
+    </div>
+    <div>
+      <p class="eyebrow">02 — Roasted</p>
+      <h3>Small drum, short runs</h3>
+      <p>We roast in 12kg batches so each one gets full attention — not stretched across a mega-batch.</p>
+    </div>
+    <div>
+      <p class="eyebrow">03 — Shipped</p>
+      <h3>Out the door within 48 hours</h3>
+      <p>Bags go out within two days of roasting. No warehouse sitting time.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Roast House · a small roastery, somewhere with good water</p>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h2>Your bag</h2>
+    <button id="cartClose" aria-label="Close cart">&times;</button>
+  </div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="cart-foot">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span id="cartTotal">$0.00</span>
+    </div>
+    <button id="checkoutBtn" class="btn btn-primary btn-full">Checkout</button>
+    <p class="cart-note">Shipping address &amp; payment are collected securely on the next step.</p>
+  </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
