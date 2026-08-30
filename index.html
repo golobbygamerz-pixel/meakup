@@ -3,795 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mehak | Makeup Artist</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:#f8f4ef;color:#29231f}
-a{text-decoration:none;color:inherit}
-button,input,textarea{font:inherit}
-header{
-position:sticky;top:0;z-index:1000;
-background:rgba(248,244,239,.96);
-border-bottom:1px solid #dfc9a8;
-padding:16px 20px
-}
-.nav{
-max-width:1100px;margin:auto;
-display:flex;align-items:center;justify-content:space-between
-}
-.logo{font-size:22px;letter-spacing:4px;font-weight:bold}
-nav{display:flex;gap:22px;align-items:center}
-nav a:hover{color:#a77b3b}
-.menu{display:none;background:none;border:0;font-size:26px}
-.hero{
-min-height:90vh;
-display:flex;align-items:center;
-padding:60px 20px;
-background:
-linear-gradient(rgba(40,28,22,.45),rgba(40,28,22,.55)),
-url("https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1600&q=85")
-center/cover
-}
-.hero-content{max-width:1100px;margin:auto;width:100%;color:white}
-.hero small{letter-spacing:4px}
-.hero h1{
-font-family:Georgia,serif;font-size:clamp(60px,14vw,130px);
-margin:10px 0
-}
-.hero p{font-size:22px;margin-bottom:28px}
-.btn{
-display:inline-block;padding:15px 24px;border-radius:30px;
-border:1px solid #c99b55;margin:5px;cursor:pointer
-}
-.gold{background:#c99b55;color:white}
-.light{background:white;color:#332820}
-section{padding:80px 20px}
-.container{max-width:1100px;margin:auto}
-.heading{text-align:center;margin-bottom:45px}
-.heading span{color:#b48645;letter-spacing:3px;font-size:13px}
-.heading h2{font-family:Georgia,serif;font-size:42px;margin-top:10px}
-.about{
-display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center
-}
-.about img{width:100%;border-radius:20px}
-.about p{line-height:1.8;margin:15px 0}
-.services{
-display:grid;grid-template-columns:repeat(4,1fr);gap:18px
-}
-.card{
-background:white;padding:25px;border-radius:18px;
-box-shadow:0 8px 30px rgba(0,0,0,.07)
-}
-.card h3{font-family:Georgia,serif;margin:15px 0 8px}
-.card p{font-size:14px;line-height:1.6;color:#6d625a}
-.card button{
-margin-top:20px;border:0;background:#c99b55;color:white;
-padding:11px 18px;border-radius:22px;cursor:pointer
-}
-.booking{
-background:#eee5da
-}
-.booking-box{
-background:white;max-width:850px;margin:auto;padding:30px;
-border-radius:24px;box-shadow:0 12px 40px rgba(0,0,0,.08)
-}
-.step{display:none}
-.step.active{display:block}
-.step h3{font-family:Georgia,serif;font-size:28px;margin-bottom:25px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.field{margin-bottom:18px}
-.field.full{grid-column:1/-1}
-label{display:block;font-size:12px;font-weight:bold;letter-spacing:1px;margin-bottom:8px}
-input,textarea{
-width:100%;padding:14px;border:1px solid #d8cabb;
-border-radius:12px;background:#fff;outline:none
-}
-textarea{resize:vertical}
-.people,.times,.service-options{
-display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px
-}
-.people button,.times button{
-border:1px solid #d4b27f;background:white;
-padding:12px 16px;border-radius:12px;cursor:pointer
-}
-.people button.selected,.times button.selected{
-background:#c99b55;color:white
-}
-.service-option{
-display:block;cursor:pointer;
-border:1px solid #ddd0c2;padding:15px;border-radius:14px;
-width:100%
-}
-.service-option input{width:auto;margin-right:8px}
-.dates{
-display:flex;gap:10px;overflow-x:auto;padding:5px 0 15px
-}
-.date{
-min-width:75px;border:1px solid #d4b27f;background:white;
-padding:12px 7px;border-radius:14px;text-align:center;cursor:pointer
-}
-.date.selected{background:#c99b55;color:white}
-.date strong{display:block;font-size:22px;margin:5px}
-.nav-buttons{
-display:flex;justify-content:space-between;margin-top:25px
-}
-.nav-buttons button{
-border:0;padding:14px 24px;border-radius:25px;cursor:pointer
-}
-.next{background:#c99b55;color:white}
-.back{background:#eee;color:#333}
-.summary{
-background:#faf7f3;border:1px solid #e0d4c7;
-padding:20px;border-radius:15px;margin-top:25px
-}
-.summary p{margin:9px 0;line-height:1.5}
-.gallery{
-display:grid;grid-template-columns:repeat(3,1fr);gap:15px
-}
-.gallery img{width:100%;height:300px;object-fit:cover;border-radius:16px}
-.reviews{
-display:grid;grid-template-columns:repeat(3,1fr);gap:18px
-}
-.review{
-background:white;padding:25px;border-radius:18px;
-box-shadow:0 8px 25px rgba(0,0,0,.06)
-}
-.stars{color:#bd8c47;margin-bottom:12px}
-.contact{text-align:center;background:#29231f;color:white}
-.contact h2{font-family:Georgia,serif;font-size:40px;margin-bottom:15px}
-footer{text-align:center;padding:25px;background:#1f1a17;color:#ddd}
-.whatsapp{
-position:fixed;right:20px;bottom:20px;z-index:2000;
-width:58px;height:58px;border-radius:50%;
-background:#25d366;color:white;
-display:flex;align-items:center;justify-content:center;
-font-size:25px;box-shadow:0 8px 25px rgba(0,0,0,.25)
-}
-.modal{
-display:none;position:fixed;inset:0;z-index:3000;
-background:rgba(0,0,0,.65);padding:20px;
-align-items:center;justify-content:center
-}
-.modal.show{display:flex}
-.modal-box{
-background:white;max-width:550px;width:100%;max-height:90vh;
-overflow:auto;border-radius:22px;padding:30px
-}
-.modal-box h2{font-family:Georgia,serif;margin-bottom:15px}
-.modal-close{
-float:right;border:0;background:none;font-size:28px;cursor:pointer
-}
-.modal-actions button{
-width:100%;padding:15px;border:0;border-radius:25px;
-margin-top:10px;cursor:pointer
-}
-.wa{background:#25d366;color:white}
-.email{background:#c99b55;color:white}
-@media(max-width:800px){
-nav{display:none}
-nav.open{
-display:flex;position:absolute;top:70px;left:0;right:0;
-background:#f8f4ef;padding:20px;flex-direction:column
-}
-.menu{display:block}
-.services{grid-template-columns:1fr 1fr}
-.about{grid-template-columns:1fr}
-.gallery{grid-template-columns:1fr 1fr}
-.reviews{grid-template-columns:1fr}
-}
-@media(max-width:500px){
-.services{grid-template-columns:1fr}
-.gallery{grid-template-columns:1fr}
-.form-grid{grid-template-columns:1fr}
-.field.full{grid-column:auto}
-.hero{min-height:80vh}
-.hero h1{font-size:70px}
-section{padding:60px 15px}
-}
-</style>
+<title>Mehak | Professional Makeup Artist</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-<div class="nav">
-<div class="logo">MEHAK</div>
-
-☰
-
-<nav id="nav">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#booking">Book</a>
-<a href="#gallery">Gallery</a>
-<a href="#reviews">Reviews</a>
-<a href="#contact">Contact</a>
+  <div class="nav">
+    <div class="logo">MEHAK</div>
+<button class="menu-btn" id="menuBtn">☰</button>
+<nav id="navMenu">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#booking">Book</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
 </nav>
-</div>
+  </div>
 </header>
 <section class="hero" id="home">
-<div class="hero-content">
-<small>PROFESSIONAL MAKEUP ARTIST</small>
-<h1>MEHAK</h1>
-<p>Your Beauty, Our Art</p>
-
-Book Appointment
-
-<a class="btn light" href="#" onclick="whatsappEnquiry();return false;">
-WhatsApp Me
-</a>
-</div>
+  <div class="hero-content">
+    <p class="eyebrow">PROFESSIONAL MAKEUP ARTIST</p>
+    <h1>MEHAK</h1>
+    <p>Your Beauty, Our Art</p>
+<a href="#booking" class="btn gold">Book Appointment</a>
+<button class="btn light" id="heroWhatsapp">
+  WhatsApp Me
+</button>
+  </div>
 </section>
 <section id="about">
-<div class="container">
-<div class="heading">
-<span>ABOUT MEHAK</span>
-<h2>Beauty that feels uniquely yours.</h2>
+  <div class="container">
+    <div class="heading">
+      <span>ABOUT MEHAK</span>
+      <h2>Beauty that feels uniquely yours.</h2>
+    </div>
+<div class="about-grid">
+  <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=85" alt="Makeup Artist">
+  <div>
+    <p>
+      Mehak is a professional makeup artist creating elegant,
+      modern and personalized beauty looks for weddings,
+      celebrations and special occasions.
+    </p>
+    <p>
+      From soft natural makeup to glamorous bridal looks,
+      every appointment is designed around your personal style.
+    </p>
+    <a href="#booking" class="btn gold">Reserve Your Appointment</a>
+  </div>
 </div>
-<div class="about">
-<img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=85" alt="Makeup">
-<div>
-<p>
-Mehak is a professional makeup artist creating elegant,
-modern and personalized looks for weddings, celebrations
-and special occasions.
-</p>
-<p>
-From soft natural beauty to glamorous bridal looks,
-every appointment is created around your personal style.
-</p>
-
-Reserve Your Appointment
-
-</div>
-</div>
-</div>
+  </div>
 </section>
-<section id="services">
-<div class="container">
+<section id="services" class="soft-section">
+  <div class="container">
 <div class="heading">
-<span>SERVICES</span>
-<h2>Signature Beauty Services</h2>
+  <span>SERVICES</span>
+  <h2>Signature Beauty Services</h2>
 </div>
 <div class="services">
-<div class="card">
-<h3>Bridal Makeup</h3>
-<p>Professional bridal makeup for your big day.</p>
-<button onclick="chooseService('Bridal Makeup')">Book Now</button>
+  <div class="service-card">
+    <h3>Bridal Makeup</h3>
+    <p>Professional bridal makeup for your big day.</p>
+    <small>Price on request • 2–3 hrs</small>
+    <button class="book-service" data-service="Bridal Makeup">Book Now</button>
+  </div>
+  <div class="service-card">
+    <h3>Engagement Makeup</h3>
+    <p>Elegant makeup for engagement ceremonies.</p>
+    <small>Price on request • 1.5–2 hrs</small>
+    <button class="book-service" data-service="Engagement Makeup">Book Now</button>
+  </div>
+  <div class="service-card">
+    <h3>Party Makeup</h3>
+    <p>Glamorous makeup for parties and events.</p>
+    <small>Price on request • 1–1.5 hrs</small>
+    <button class="book-service" data-service="Party Makeup">Book Now</button>
+  </div>
+  <div class="service-card">
+    <h3>Reception Makeup</h3>
+    <p>Premium reception-ready makeup.</p>
+    <small>Price on request • 2 hrs</small>
+    <button class="book-service" data-service="Reception Makeup">Book Now</button>
+  </div>
+  <div class="service-card">
+    <h3>HD Makeup</h3>
+    <p>Flawless HD makeup finish.</p>
+    <small>Price on request • 1.5–2 hrs</small>
+    <button class="book-service" data-service="HD Makeup">Book Now</button>
+  </div>
+  <div class="service-card">
+    <h3>Hairstyling</h3>
+    <p>Professional hairstyles to complete your look.</p>
+    <small>Price on request • 1 hr</small>
+    <button class="book-service" data-service="Hairstyling">Book Now</button>
+  </div>
+  <div class="service-card">
+    <h3>Saree Draping</h3>
+    <p>Professional saree draping service.</p>
+    <small>Price on request • 30–45 mins</small>
+    <button class="book-service" data-service="Saree Draping">Book Now</button>
+  </div>
+  <div class="service-card">
+    <h3>Makeup + Hairstyling</h3>
+    <p>Complete beauty package for your occasion.</p>
+    <small>Price on request • 2–3 hrs</small>
+    <button class="book-service" data-service="Makeup + Hairstyling">Book Now</button>
+  </div>
 </div>
-<div class="card">
-<h3>Engagement Makeup</h3>
-<p>Elegant makeup for your engagement ceremony.</p>
-<button onclick="chooseService('Engagement Makeup')">Book Now</button>
-</div>
-<div class="card">
-<h3>Party Makeup</h3>
-<p>Glamorous makeup for parties and events.</p>
-<button onclick="chooseService('Party Makeup')">Book Now</button>
-</div>
-<div class="card">
-<h3>Reception Makeup</h3>
-<p>Premium reception-ready makeup.</p>
-<button onclick="chooseService('Reception Makeup')">Book Now</button>
-</div>
-<div class="card">
-<h3>HD Makeup</h3>
-<p>Flawless makeup designed for cameras.</p>
-<button onclick="chooseService('HD Makeup')">Book Now</button>
-</div>
-<div class="card">
-<h3>Hairstyling</h3>
-<p>Professional hairstyles to complete your look.</p>
-<button onclick="chooseService('Hairstyling')">Book Now</button>
-</div>
-<div class="card">
-<h3>Saree Draping</h3>
-<p>Professional saree draping service.</p>
-<button onclick="chooseService('Saree Draping')">Book Now</button>
-</div>
-<div class="card">
-<h3>Makeup + Hairstyling</h3>
-<p>Complete beauty package for your occasion.</p>
-<button onclick="chooseService('Makeup + Hairstyling')">Book Now</button>
-</div>
-</div>
-</div>
+  </div>
 </section>
-<section class="booking" id="booking">
-<div class="container">
+<section id="booking" class="booking-section">
+  <div class="container">
 <div class="heading">
-<span>APPOINTMENT</span>
-<h2>Reserve Your Beauty Session</h2>
+  <span>APPOINTMENT</span>
+  <h2>Reserve Your Beauty Session</h2>
 </div>
 <div class="booking-box">
-<!-- STEP 1 -->
-<div class="step active" id="step1">
-<h3>01 — Your Details</h3>
-<div class="form-grid">
-<div class="field full">
-<label>FULL NAME *</label>
-<input id="name" type="text" placeholder="Your full name">
+  <div class="step active" data-step="1">
+    <h3>01 — Customer Details</h3>
+    <label>Full Name *</label>
+    <input id="customerName" type="text" placeholder="Enter your full name">
+    <div class="two-columns">
+      <div>
+        <label>Mobile / WhatsApp *</label>
+        <input id="customerPhone" type="tel" placeholder="10-digit mobile number">
+      </div>
+      <div>
+        <label>Email Address *</label>
+        <input id="customerEmail" type="email" placeholder="you@email.com">
+      </div>
+    </div>
+    <label>Number of People *</label>
+    <div class="people-options">
+      <button type="button" data-people="1">1 Person</button>
+      <button type="button" data-people="2">2 People</button>
+      <button type="button" data-people="3">3 People</button>
+      <button type="button" data-people="4">4 People</button>
+      <button type="button" data-people="5+">5+ People</button>
+    </div>
+    <button class="next-btn" id="step1Next">Continue →</button>
+  </div>
+  <div class="step" data-step="2">
+    <h3>02 — Select Services</h3>
+    <div class="service-select">
+      <label><input type="checkbox" value="Bridal Makeup"> Bridal Makeup</label>
+      <label><input type="checkbox" value="Engagement Makeup"> Engagement Makeup</label>
+      <label><input type="checkbox" value="Party Makeup"> Party Makeup</label>
+      <label><input type="checkbox" value="Reception Makeup"> Reception Makeup</label>
+      <label><input type="checkbox" value="HD Makeup"> HD Makeup</label>
+      <label><input type="checkbox" value="Hairstyling"> Hairstyling</label>
+      <label><input type="checkbox" value="Saree Draping"> Saree Draping</label>
+      <label><input type="checkbox" value="Makeup + Hairstyling"> Makeup + Hairstyling</label>
+    </div>
+    <div class="step-buttons">
+      <button class="back-btn" data-back="1">← Back</button>
+      <button class="next-btn" id="step2Next">Continue →</button>
+    </div>
+  </div>
+  <div class="step" data-step="3">
+    <h3>03 — Date & Time</h3>
+    <label>Select Date *</label>
+    <div class="date-list" id="dateList"></div>
+    <label>Select Time *</label>
+    <div class="time-list" id="timeList"></div>
+    <div class="step-buttons">
+      <button class="back-btn" data-back="2">← Back</button>
+      <button class="next-btn" id="step3Next">Continue →</button>
+    </div>
+  </div>
+  <div class="step" data-step="4">
+    <h3>04 — Appointment Location</h3>
+    <label>Full Address *</label>
+    <textarea id="address" rows="4" placeholder="House/Flat No., Street, Area, Building..."></textarea>
+    <div class="two-columns">
+      <div>
+        <label>City *</label>
+        <input id="city" type="text" placeholder="Delhi">
+      </div>
+      <div>
+        <label>Landmark</label>
+        <input id="landmark" type="text" placeholder="Optional">
+      </div>
+    </div>
+    <div class="payment-card">
+      <strong>💵 CASH ON APPOINTMENT</strong>
+      <p>No online payment required. Payment will be collected in cash at the appointment.</p>
+    </div>
+    <div class="step-buttons">
+      <button class="back-btn" data-back="3">← Back</button>
+      <button class="next-btn" id="confirmBtn">Confirm Appointment</button>
+    </div>
+  </div>
 </div>
-<div class="field">
-<label>MOBILE / WHATSAPP *</label>
-<input id="phone" type="tel" placeholder="9876543210">
-</div>
-<div class="field">
-<label>EMAIL *</label>
-<input id="customerEmail" type="email" placeholder="you@email.com">
-</div>
-</div>
-
-NUMBER OF PEOPLE *
-
-<div class="people">
-
-1 Person
-2 People
-3 People
-4 People
-5+ People
-
-</div>
-<div class="nav-buttons">
-<span></span>
-<button class="next" onclick="nextStep(2)">Continue →</button>
-</div>
-</div>
-<!-- STEP 2 -->
-<div class="step" id="step2">
-<h3>02 — Select Services</h3>
-<div class="service-options">
-<label class="service-option">
-<input type="checkbox" value="Bridal Makeup" onchange="servicesChanged()">
-Bridal Makeup
-</label>
-<label class="service-option">
-<input type="checkbox" value="Engagement Makeup" onchange="servicesChanged()">
-Engagement Makeup
-</label>
-<label class="service-option">
-<input type="checkbox" value="Party Makeup" onchange="servicesChanged()">
-Party Makeup
-</label>
-<label class="service-option">
-<input type="checkbox" value="Reception Makeup" onchange="servicesChanged()">
-Reception Makeup
-</label>
-<label class="service-option">
-<input type="checkbox" value="HD Makeup" onchange="servicesChanged()">
-HD Makeup
-</label>
-<label class="service-option">
-<input type="checkbox" value="Hairstyling" onchange="servicesChanged()">
-Hairstyling
-</label>
-<label class="service-option">
-<input type="checkbox" value="Saree Draping" onchange="servicesChanged()">
-Saree Draping
-</label>
-<label class="service-option">
-<input type="checkbox" value="Makeup + Hairstyling" onchange="servicesChanged()">
-Makeup + Hairstyling
-</label>
-</div>
-<div class="nav-buttons">
-<button class="back" onclick="nextStep(1)">← Back</button>
-<button class="next" onclick="nextStep(3)">Continue →</button>
-</div>
-</div>
-<!-- STEP 3 -->
-<div class="step" id="step3">
-<h3>03 — Date & Time</h3>
-
-SELECT DATE *
-
-<div class="dates" id="dates"></div>
-
-SELECT TIME *
-
-<div class="times" id="times"></div>
-<div class="nav-buttons">
-<button class="back" onclick="nextStep(2)">← Back</button>
-<button class="next" onclick="nextStep(4)">Continue →</button>
-</div>
-</div>
-<!-- STEP 4 -->
-<div class="step" id="step4">
-<h3>04 — Appointment Location</h3>
-<div class="field">
-<label>FULL ADDRESS *</label>
-<textarea id="address" rows="4" placeholder="House / Flat No., Street, Area, Building..."></textarea>
-</div>
-<div class="form-grid">
-<div class="field">
-<label>CITY *</label>
-<input id="city" type="text" placeholder="Delhi">
-</div>
-<div class="field">
-<label>LANDMARK</label>
-<input id="landmark" type="text" placeholder="Optional">
-</div>
-</div>
-<div class="summary">
-<strong>PAYMENT</strong>
-<p>💵 Cash on Appointment</p>
-<p>No online payment required. Payment will be collected in cash at the appointment.</p>
-</div>
-<div class="nav-buttons">
-<button class="back" onclick="nextStep(3)">← Back</button>
-<button class="next" onclick="confirmBooking()">Confirm Appointment</button>
-</div>
-</div>
-</div>
-</div>
+  </div>
 </section>
 <section id="gallery">
-<div class="container">
-<div class="heading">
-<span>PORTFOLIO</span>
-<h2>Beauty in Every Detail</h2>
-</div>
+  <div class="container">
+    <div class="heading">
+      <span>PORTFOLIO</span>
+      <h2>Beauty in Every Detail</h2>
+    </div>
 <div class="gallery">
-<img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=85" alt="Makeup">
-<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=85" alt="Beauty">
-<img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=800&q=85" alt="Hair">
-<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=85" alt="Makeup">
-<img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=85" alt="Bridal">
-<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85" alt="Fashion">
+  <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=85" alt="Bridal Makeup">
+  <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=85" alt="Party Makeup">
+  <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=800&q=85" alt="Hairstyling">
+  <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=85" alt="Client Look">
+  <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=85" alt="Beauty Look">
+  <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85" alt="Reception Look">
 </div>
-</div>
+  </div>
 </section>
 <section id="reviews">
-<div class="container">
-<div class="heading">
-<span>REVIEWS</span>
-<h2>Loved by Clients</h2>
-</div>
+  <div class="container">
+    <div class="heading">
+      <span>REVIEWS</span>
+      <h2>Loved by Clients</h2>
+    </div>
 <div class="reviews">
-<div class="review">
-<div class="stars">★★★★★</div>
-<p>“The makeup was elegant and exactly what I wanted.”</p>
-<br>
-<strong>— Aanya</strong>
+  <div class="review">
+    <div>★★★★★</div>
+    <p>“The makeup was elegant and exactly what I wanted.”</p>
+    <strong>— Aanya</strong>
+  </div>
+  <div class="review">
+    <div>★★★★★</div>
+    <p>“Mehak understood my look perfectly. Highly recommended.”</p>
+    <strong>— Priya</strong>
+  </div>
+  <div class="review">
+    <div>★★★★★</div>
+    <p>“Loved the makeup and hairstyle. Everything looked beautiful.”</p>
+    <strong>— Simran</strong>
+  </div>
 </div>
-<div class="review">
-<div class="stars">★★★★★</div>
-<p>“Mehak understood my look perfectly. Highly recommended.”</p>
-<br>
-<strong>— Priya</strong>
-</div>
-<div class="review">
-<div class="stars">★★★★★</div>
-<p>“Loved the makeup and hairstyle. Everything looked beautiful.”</p>
-<br>
-<strong>— Simran</strong>
-</div>
-</div>
-</div>
+  </div>
 </section>
-<section class="contact" id="contact">
-<div class="container">
-<div class="heading">
-<span>GET IN TOUCH</span>
-<h2>Let's Create Your Perfect Look</h2>
-</div>
-<p>WhatsApp Mehak directly for enquiries and appointments.</p>
-<br>
-<a href="#" onclick="whatsappEnquiry();return false;" class="btn gold">
-WhatsApp Mehak
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="heading">
+      <span>CONTACT</span>
+      <h2>Let's Create Your Perfect Look</h2>
+    </div>
+<p>Email: golobbygamerz@gmail.com</p>
+<button class="btn gold" id="contactWhatsapp">
+  WhatsApp Mehak
+</button>
+<a class="btn light" href="mailto:golobbygamerz@gmail.com">
+  Email Mehak
 </a>
-<a href="mailto:golobbygamerz@gmail.com" class="btn light">
-Email Mehak
-</a>
-<p style="margin-top:25px">
-golobbygamerz@gmail.com
-</p>
-</div>
+  </div>
 </section>
 <footer>
-© 2026 Mehak Makeup Artist
+  © 2026 Mehak Makeup Artist
 </footer>
-<a href="#" class="whatsapp" onclick="whatsappEnquiry();return false;">
-☎
-</a>
-<!-- CONFIRMATION -->
-<div class="modal" id="modal">
-<div class="modal-box">
 
-×
+☘
 
+<div class="modal" id="successModal">
+  <div class="modal-box">
+    <button class="close-modal" id="closeModal">×</button>
 <h2>Appointment Request Ready!</h2>
 <p>Thank you for choosing Mehak Makeup Artist.</p>
-<div class="summary" id="bookingResult"></div>
-<div class="modal-actions">
-<button class="wa" onclick="sendWhatsApp()">
-📱 Send Booking on WhatsApp
+<div id="bookingSummary" class="summary"></div>
+<button class="whatsapp-btn" id="sendWhatsApp">
+  📱 Send Booking on WhatsApp
 </button>
-<button class="email" onclick="sendEmail()">
-✉️ Send Booking by Email
+<button class="email-btn" id="sendEmail">
+  ✉️ Send Booking by Email
 </button>
+  </div>
 </div>
-</div>
-</div>
-<script>
-const BUSINESS_EMAIL = "golobbygamerz@gmail.com";
-/*
-IMPORTANT:
-Replace this with Mehak's REAL WhatsApp number.
-Example:
-const WHATSAPP_NUMBER = "919876543210";
-*/
-const WHATSAPP_NUMBER = "919XXXXXXXXX";
-let people = "1";
-let selectedServices = [];
-let selectedDate = "";
-let selectedTime = "";
-let booking = null;
-/* MENU */
-function toggleMenu(){
-document.getElementById("nav").classList.toggle("open");
-}
-/* PEOPLE */
-function peopleSelect(button,value){
-document.querySelectorAll(".people button").forEach(b=>{
-b.classList.remove("selected");
-});
-button.classList.add("selected");
-people=value;
-}
-/* SERVICE */
-function servicesChanged(){
-selectedServices =
-Array.from(
-document.querySelectorAll(".service-options input:checked")
-).map(x=>x.value);
-}
-function chooseService(service){
-document.getElementById("booking").scrollIntoView({
-behavior:"smooth"
-});
-setTimeout(()=>{
-document.querySelectorAll(".service-options input")
-.forEach(input=>{
-input.checked = input.value === service;
-});
-selectedServices=[service];
-nextStep(2);
-},500);
-}
-/* STEPS */
-function nextStep(number){
-if(number===2){
-if(!document.getElementById("name").value.trim()){
-alert("Please enter your full name.");
-return;
-}
-if(!document.getElementById("phone").value.trim()){
-alert("Please enter your mobile / WhatsApp number.");
-return;
-}
-if(!document.getElementById("customerEmail").value.trim()){
-alert("Please enter your email.");
-return;
-}
-}
-if(number===3){
-servicesChanged();
-if(selectedServices.length===0){
-alert("Please select at least one service.");
-return;
-}
-}
-if(number===4){
-if(!selectedDate){
-alert("Please select an appointment date.");
-return;
-}
-if(!selectedTime){
-alert("Please select a time slot.");
-return;
-}
-}
-document.querySelectorAll(".step").forEach(step=>{
-step.classList.remove("active");
-});
-document.getElementById("step"+number).classList.add("active");
-document.getElementById("booking").scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-}
-/* DATES */
-function createDates(){
-const container=document.getElementById("dates");
-const today=new Date();
-for(let i=0;i<45;i++){
-const date=new Date();
-date.setDate(today.getDate()+i);
-const button=document.createElement("button");
-button.type="button";
-button.className="date";
-button.innerHTML=
-`
-${date.toLocaleDateString("en-US",{weekday:"short"}).toUpperCase()}
-<strong>${date.getDate()}</strong>
-${date.toLocaleDateString("en-US",{month:"short"}).toUpperCase()}
-`;
-button.onclick=()=>{
-document.querySelectorAll(".date")
-.forEach(x=>x.classList.remove("selected"));
-button.classList.add("selected");
-selectedDate=date.toLocaleDateString("en-IN",{
-weekday:"long",
-day:"numeric",
-month:"long",
-year:"numeric"
-});
-};
-container.appendChild(button);
-}
-}
-/* TIMES */
-function createTimes(){
-const container=document.getElementById("times");
-const slots=[
-"9:00 AM",
-"10:30 AM",
-"12:00 PM",
-"2:00 PM",
-"4:00 PM",
-"6:00 PM"
-];
-slots.forEach(time=>{
-const button=document.createElement("button");
-button.type="button";
-button.textContent=time;
-button.onclick=()=>{
-document.querySelectorAll(".times button")
-.forEach(x=>x.classList.remove("selected"));
-button.classList.add("selected");
-selectedTime=time;
-};
-container.appendChild(button);
-});
-}
-/* BOOKING */
-function confirmBooking(){
-const address=document.getElementById("address").value.trim();
-const city=document.getElementById("city").value.trim();
-if(!address){
-alert("Please enter your complete appointment address.");
-return;
-}
-if(!city){
-alert("Please enter your city.");
-return;
-}
-const id=
-"MH-"+new Date().getFullYear()+"-"+
-Math.floor(1000+Math.random()*9000);
-booking={
-id:id,
-name:document.getElementById("name").value.trim(),
-phone:document.getElementById("phone").value.trim(),
-email:document.getElementById("customerEmail").value.trim(),
-people:people,
-services:[...selectedServices],
-date:selectedDate,
-time:selectedTime,
-address:address,
-city:city,
-landmark:document.getElementById("landmark").value.trim()
-};
-document.getElementById("bookingResult").innerHTML=`
-<p><strong>Booking ID:</strong> ${escapeHTML(booking.id)}</p>
-<p><strong>Customer:</strong> ${escapeHTML(booking.name)}</p>
-<p><strong>Phone:</strong> ${escapeHTML(booking.phone)}</p>
-<p><strong>Email:</strong> ${escapeHTML(booking.email)}</p>
-<p><strong>People:</strong> ${escapeHTML(booking.people)}</p>
-<p><strong>Services:</strong><br>
-${booking.services.map(x=>"• "+escapeHTML(x)).join("<br>")}
-</p>
-<p><strong>Date:</strong> ${escapeHTML(booking.date)}</p>
-<p><strong>Time:</strong> ${escapeHTML(booking.time)}</p>
-<p><strong>Address:</strong> ${escapeHTML(booking.address)}</p>
-<p><strong>City:</strong> ${escapeHTML(booking.city)}</p>
-<p><strong>Landmark:</strong> ${escapeHTML(booking.landmark || "Not provided")}</p>
-<p><strong>Payment:</strong> Cash on Appointment</p>
-`;
-document.getElementById("modal").classList.add("show");
-}
-function escapeHTML(text){
-return String(text)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
-}
-/* WHATSAPP */
-function sendWhatsApp(){
-if(WHATSAPP_NUMBER.includes("XXXXXXXX")){
-alert("Please add Mehak's real WhatsApp number in the code first.");
-return;
-}
-const services=booking.services.join(", ");
-const message=
-`NEW APPOINTMENT REQUEST
-Booking ID: ${booking.id}
-Customer Name: ${booking.name}
-Phone: ${booking.phone}
-Email: ${booking.email}
-Number of People: ${booking.people}
-Services:
-${services}
-Date: ${booking.date}
-Time: ${booking.time}
-Full Address:
-${booking.address}
-City:
-${booking.city}
-Landmark:
-${booking.landmark || "Not provided"}
-Payment:
-Cash on Appointment`;
-const url=
-"https://wa.me/"+WHATSAPP_NUMBER+
-"?text="+encodeURIComponent(message);
-window.open(url,"_blank");
-}
-/* EMAIL */
-function sendEmail(){
-const subject=
-"New Makeup Appointment - "+
-booking.name+" - "+booking.date;
-const body=
-`NEW MAKEUP APPOINTMENT
-Booking ID: ${booking.id}
-Customer Name: ${booking.name}
-Phone Number: ${booking.phone}
-Customer Email: ${booking.email}
-Number of People: ${booking.people}
-Services:
-${booking.services.join(", ")}
-Appointment Date:
-${booking.date}
-Appointment Time:
-${booking.time}
-Full Address:
-${booking.address}
-City:
-${booking.city}
-Landmark:
-${booking.landmark || "Not provided"}
-Payment Method:
-Cash on Appointment`;
-window.location.href=
-"mailto:"+BUSINESS_EMAIL+
-"?subject="+encodeURIComponent(subject)+
-"&body="+encodeURIComponent(body);
-}
-/* ENQUIRY */
-function whatsappEnquiry(){
-const WHATSAPP_NUMBER = "919310151087";
-
-if(WHATSAPP_NUMBER.includes("XXXXXXXX")){
-const message=
-"Hi Mehak, I would like to enquire about makeup services.";
-window.open(
-"https://wa.me/"+WHATSAPP_NUMBER+
-"?text="+encodeURIComponent(message),
-"_blank"
-);
-}
-/* CLOSE */
-function closeModal(){
-document.getElementById("modal").classList.remove("show");
-}
-/* START */
-createDates();
-createTimes();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
