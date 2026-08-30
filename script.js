@@ -15,6 +15,8 @@ businessEmail: “golobbygamerz@gmail.com”,
 // Example for India: 919876543210
 const WHATSAPP_NUMBER = "919310151087";
 
+if(WHATSAPP_NUMBER.includes("XXXXXXXX")){
+
 paymentMethod: “Cash on Appointment”,
 
 timeSlots: [
