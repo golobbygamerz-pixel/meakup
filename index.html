@@ -1,85 +1,513 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roast House — small-batch coffee</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+Create a premium, modern, mobile-first Makeup Artist Appointment Booking Website using ONLY:
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <span class="wordmark">Roast House</span>
-    <nav class="header-nav">
-      <a href="#shop">Shop</a>
-      <a href="#about">Our process</a>
-    </nav>
-    <button class="cart-toggle" id="cartToggle" aria-label="Open cart">
-      Bag <span id="cartCount">0</span>
-    </button>
-  </div>
-</header>
+* HTML
+* CSS
+* Vanilla JavaScript
 
-<section class="hero">
-  <div class="wrap hero-inner">
-    <p class="eyebrow">Roasted Tuesdays &amp; Fridays, shipped within 48 hours</p>
-    <h1>Coffee roasted<br>to the day it ships.</h1>
-    <p class="hero-sub">Four bags. No inventory sitting around. Small batches from one roaster, one address, so what you get is what left the drum that week.</p>
-    <a href="#shop" class="btn btn-primary">See this week's roast</a>
-  </div>
-</section>
+Do NOT use a backend, database, PHP, Node.js, React, or any server-side technology.
 
-<section id="shop" class="shop wrap">
-  <h2 class="section-title">This week's bags</h2>
-  <div class="grid" id="productGrid"></div>
-</section>
+Business Details
 
-<section id="about" class="about wrap">
-  <div class="about-grid">
-    <div>
-      <p class="eyebrow">01 — Sourced</p>
-      <h3>Direct-trade lots, named farms</h3>
-      <p>Every bag lists the farm, the elevation, and the process. No blends of anonymous origin.</p>
-    </div>
-    <div>
-      <p class="eyebrow">02 — Roasted</p>
-      <h3>Small drum, short runs</h3>
-      <p>We roast in 12kg batches so each one gets full attention — not stretched across a mega-batch.</p>
-    </div>
-    <div>
-      <p class="eyebrow">03 — Shipped</p>
-      <h3>Out the door within 48 hours</h3>
-      <p>Bags go out within two days of roasting. No warehouse sitting time.</p>
-    </div>
-  </div>
-</section>
+Makeup Artist Name: Mehak
 
-<footer class="site-footer">
-  <div class="wrap">
-    <p>Roast House · a small roastery, somewhere with good water</p>
-  </div>
-</footer>
+Business Email: golobbygamerz@gmail.com
 
-<div class="cart-overlay" id="cartOverlay"></div>
-<aside class="cart-drawer" id="cartDrawer">
-  <div class="cart-head">
-    <h2>Your bag</h2>
-    <button id="cartClose" aria-label="Close cart">&times;</button>
-  </div>
-  <div id="cartItems" class="cart-items"></div>
-  <div class="cart-foot">
-    <div class="cart-total-row">
-      <span>Total</span>
-      <span id="cartTotal">$0.00</span>
-    </div>
-    <button id="checkoutBtn" class="btn btn-primary btn-full">Checkout</button>
-    <p class="cart-note">Shipping address &amp; payment are collected securely on the next step.</p>
-  </div>
-</aside>
+Payment Method: Cash on Appointment
 
-<script src="script.js"></script>
-</body>
-</html>
+Website Goal
+
+Create a beautiful professional makeup artist website where customers can:
+
+1. View Mehak’s makeup services.
+2. Select one or multiple services.
+3. Select the number of people.
+4. Select an appointment date.
+5. Select an available time slot.
+6. Enter their full customer details.
+7. Enter their complete appointment address.
+8. Review all booking information.
+9. Submit the booking.
+10. Send the complete booking details to Mehak through WhatsApp.
+11. Open an email containing the complete booking details addressed to golobbygamerz@gmail.com.
+
+Design
+
+Make the website look premium, elegant and professional.
+
+Use:
+
+* Luxury beauty/makeup aesthetic
+* Soft neutral background
+* Elegant gold accents
+* Modern typography
+* Smooth animations
+* Beautiful cards
+* Rounded buttons
+* Subtle shadows
+* Responsive layout
+* Mobile-first design
+* Professional makeup/bridal imagery
+* Sticky navigation
+* Smooth scrolling
+
+Do not make it look like a basic HTML project.
+
+Hero Section
+
+Display:
+
+MEHAK
+
+Professional Makeup Artist
+
+Tagline:
+
+“Your Beauty, Our Art”
+
+Buttons:
+
+Book Appointment
+
+WhatsApp Me
+
+Add a premium makeup/bridal hero image.
+
+About Mehak
+
+Create an About section introducing Mehak as a professional makeup artist.
+
+Include:
+
+* Professional introduction
+* Makeup specialties
+* Experience placeholder
+* Beautiful image
+* Short luxury-style description
+
+Services
+
+Create attractive service cards.
+
+Include:
+
+Bridal Makeup
+
+Professional bridal makeup for the big day.
+
+Engagement Makeup
+
+Elegant makeup for engagement ceremonies.
+
+Party Makeup
+
+Glamorous makeup for parties and events.
+
+Reception Makeup
+
+Premium reception-ready makeup.
+
+HD Makeup
+
+Flawless HD makeup finish.
+
+Hairstyling
+
+Professional hairstyles to complete the look.
+
+Saree Draping
+
+Professional saree draping service.
+
+Makeup + Hairstyling
+
+Complete beauty package.
+
+Each service card should have:
+
+* Service name
+* Short description
+* Price placeholder
+* Duration placeholder
+* Book Now button
+
+When the customer clicks “Book Now”, automatically select that service in the booking form.
+
+Booking Form
+
+Create a beautiful multi-step or single-page booking form.
+
+Step 1 — Customer Details
+
+Required fields:
+
+* Full Name
+* Mobile/WhatsApp Number
+* Email Address
+* Number of People
+
+Number of people should be a number selector.
+
+Example:
+
+1 Person
+2 People
+3 People
+4 People
+5+ People
+
+Step 2 — Services
+
+Allow customers to select one or multiple services.
+
+Use checkboxes/cards.
+
+Example:
+
+☐ Bridal Makeup
+☐ Engagement Makeup
+☐ Party Makeup
+☐ Reception Makeup
+☐ HD Makeup
+☐ Hairstyling
+☐ Saree Draping
+☐ Makeup + Hairstyling
+
+Clearly show the selected services.
+
+Step 3 — Date
+
+Create a modern horizontal scrollable date selector.
+
+Display:
+
+MON
+30
+AUG
+
+TUE
+31
+AUG
+
+WED
+1
+SEP
+
+etc.
+
+Requirements:
+
+* Horizontal scrolling on mobile
+* Mouse/trackpad scrolling on desktop
+* Highlight selected date
+* Disable past dates
+* Show upcoming dates
+* Easy touch interaction
+* Calendar-style fallback option
+* Automatically update available time slots when date changes
+
+Use JavaScript to generate dates dynamically.
+
+Step 4 — Time Slot
+
+Show selectable time slots.
+
+Example:
+
+9:00 AM
+10:30 AM
+12:00 PM
+2:00 PM
+4:00 PM
+6:00 PM
+
+Selected slot should be visually highlighted.
+
+Since there is no backend, create a JavaScript-based demo availability system where certain slots can be marked unavailable in the code.
+
+Do NOT pretend that the frontend can know real-time bookings from other users.
+
+Step 5 — Appointment Location
+
+Required fields:
+
+* Full Address
+* City
+* Landmark (optional)
+
+Make Full Address clearly required.
+
+The customer must provide the complete location where the makeup service is required.
+
+Payment
+
+Display a premium payment information card:
+
+Payment Method
+
+CASH ON APPOINTMENT
+
+“No online payment required. Payment will be collected in cash at the appointment.”
+
+Do not add online payment gateways.
+
+Booking Summary
+
+Before confirmation, show a live booking summary.
+
+Display:
+
+Appointment Summary
+
+Customer Name: Mehak Customer
+Phone: 98XXXXXXXX
+Email: customer@email.com
+Number of People: 2
+
+Services:
+
+* Bridal Makeup
+* Hairstyling
+
+Date: 15 September 2026
+Time: 10:30 AM
+
+Full Address:
+Customer’s complete address
+
+City:
+Delhi
+
+Payment:
+Cash on Appointment
+
+Generate a unique-looking booking reference using JavaScript, for example:
+
+MH-2026-4821
+
+Confirmation
+
+When the customer clicks:
+
+Confirm Appointment
+
+Validate every required field.
+
+If anything is missing, show a clear error message.
+
+If everything is completed:
+
+Show:
+
+Appointment Request Ready!
+
+“Thank you for choosing Mehak Makeup Artist.”
+
+Display:
+
+* Booking ID
+* Customer name
+* Services
+* Number of people
+* Date
+* Time
+* Full address
+* Payment method
+
+WhatsApp Integration
+
+Create a large button:
+
+📱 Send Booking on WhatsApp
+
+When clicked, JavaScript should create a WhatsApp message containing ALL booking information.
+
+The message should include:
+
+NEW APPOINTMENT REQUEST
+
+Booking ID: [Booking ID]
+
+Customer Name: [Name]
+
+Phone: [Phone]
+
+Email: [Email]
+
+Number of People: [Number]
+
+Services:
+[Selected Services]
+
+Date: [Date]
+
+Time: [Time]
+
+Full Address:
+[Full Address]
+
+City:
+[City]
+
+Landmark:
+[Landmark]
+
+Payment:
+Cash on Appointment
+
+Then open WhatsApp with the message pre-filled.
+
+Use a configurable WhatsApp number in the JavaScript section so Mehak can easily replace it.
+
+Email Integration
+
+Add a button:
+
+✉️ Send Booking by Email
+
+Use a mailto: link to open the customer’s default email application.
+
+The email should automatically contain:
+
+To:
+golobbygamerz@gmail.com
+
+Subject:
+
+New Makeup Appointment - [Customer Name] - [Date]
+
+Email body:
+
+Booking ID: [Booking ID]
+
+Customer Name: [Name]
+
+Phone Number: [Phone]
+
+Customer Email: [Email]
+
+Number of People: [Number]
+
+Services:
+[Services]
+
+Appointment Date: [Date]
+
+Appointment Time: [Time]
+
+Full Address:
+[Full Address]
+
+City:
+[City]
+
+Landmark:
+[Landmark]
+
+Payment Method:
+Cash on Appointment
+
+The email should be formatted neatly and professionally.
+
+Floating WhatsApp Button
+
+Add a fixed WhatsApp button on the bottom-right side of every page.
+
+When clicked, it should open WhatsApp with a simple message:
+
+“Hi Mehak, I would like to enquire about makeup services.”
+
+Add a subtle animation/pulse effect.
+
+Contact Section
+
+Include:
+
+Mehak Makeup Artist
+
+WhatsApp
+Phone
+Email: golobbygamerz@gmail.com
+Instagram
+Location
+
+Add a “Book Appointment” button.
+
+Gallery
+
+Create a premium gallery with placeholder images for:
+
+* Bridal Makeup
+* Party Makeup
+* Engagement Makeup
+* Hairstyling
+* Reception Makeup
+* Client Looks
+
+Add a lightbox effect using JavaScript.
+
+Reviews
+
+Create a testimonials section with sample reviews.
+
+Include:
+
+* Customer name
+* Star rating
+* Review
+
+Navigation
+
+Create:
+
+Home
+About
+Services
+Gallery
+Reviews
+Contact
+Book Appointment
+
+Navigation should be responsive and have a mobile hamburger menu.
+
+JavaScript Requirements
+
+Use vanilla JavaScript for:
+
+* Mobile menu
+* Smooth scrolling
+* Service selection
+* Booking form validation
+* Number of people selection
+* Dynamic date generation
+* Date selection
+* Time-slot selection
+* Booking summary
+* Booking ID generation
+* WhatsApp message generation
+* Email mailto: generation
+* Success/error messages
+* Gallery lightbox
+* Scroll animations
+* Form reset
+
+Important Limitation
+
+Because this website uses ONLY HTML, CSS and JavaScript:
+
+* Do not claim that bookings are stored in a database.
+* Do not claim that real-time bookings are synchronized between customers.
+* Do not create a fake admin dashboard.
+* Do not claim automatic email delivery.
+* Use WhatsApp pre-filled messaging.
+* Use mailto: for email.
+* Keep all configurable business information in one easy-to-find JavaScript configuration section.
+
+Create the code in three separate files:
+
+1. index.html
+2. style.css
+3. script.js
+
+Make sure all three files work together immediately when opened in a browser.
+
+The final result should look like a real premium makeup artist booking website for Mehak, not a basic coding demo.
